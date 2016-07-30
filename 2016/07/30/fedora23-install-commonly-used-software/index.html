@@ -4,17 +4,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | 當然我在胡說</title>
+  <title>Fedora23 常用软件安装 | 當然我在胡說</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mr.Huの个人博客胡说(當然我在胡說），linux瞎折腾，python学习笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="當然我在胡說">
-<meta property="og:url" content="http://mrhu.tk/archives/index.html">
+  <meta name="description" content="1.安装网易云音乐FZUG.repo，确保里面有开启[fzug-testing]1234567[fzug-testing]name=FZUG fc$releasever - Testingbaseurl=https://repo.fdzh.org/FZUG/testing/$releasever/$basearch/skip_if_unavailable=Truemetadata_expire=1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fedora23 常用软件安装">
+<meta property="og:url" content="http://mrhu.tk/2016/07/30/fedora23-install-commonly-used-software/index.html">
 <meta property="og:site_name" content="當然我在胡說">
-<meta property="og:description" content="Mr.Huの个人博客胡说(當然我在胡說），linux瞎折腾，python学习笔记">
+<meta property="og:description" content="1.安装网易云音乐FZUG.repo，确保里面有开启[fzug-testing]1234567[fzug-testing]name=FZUG fc$releasever - Testingbaseurl=https://repo.fdzh.org/FZUG/testing/$releasever/$basearch/skip_if_unavailable=Truemetadata_expire=1">
+<meta property="og:updated_time" content="2016-07-30T03:51:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="當然我在胡說">
-<meta name="twitter:description" content="Mr.Huの个人博客胡说(當然我在胡說），linux瞎折腾，python学习笔记">
+<meta name="twitter:title" content="Fedora23 常用软件安装">
+<meta name="twitter:description" content="1.安装网易云音乐FZUG.repo，确保里面有开启[fzug-testing]1234567[fzug-testing]name=FZUG fc$releasever - Testingbaseurl=https://repo.fdzh.org/FZUG/testing/$releasever/$basearch/skip_if_unavailable=Truemetadata_expire=1">
   
     <link rel="alternative" href="/atom.xml" title="當然我在胡說" type="application/atom+xml">
   
@@ -68,172 +69,94 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/07/30/linux-mame-install/" class="archive-article-date">
-  <time datetime="2016-07-30T03:52:26.000Z" itemprop="datePublished">7月 30</time>
+      <section id="main"><article id="post-fedora23-install-commonly-used-software" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/30/fedora23-install-commonly-used-software/" class="article-date">
+  <time datetime="2016-07-30T03:37:20.000Z" itemprop="datePublished">2016-07-30</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/30/linux-mame-install/">Linux下安装mame街机模拟器</a>
+    <h1 class="article-title" itemprop="name">
+      Fedora23 常用软件安装
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/07/30/fedora23-install-commonly-used-software/" class="archive-article-date">
-  <time datetime="2016-07-30T03:37:20.000Z" itemprop="datePublished">7月 30</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/30/fedora23-install-commonly-used-software/">Fedora23 常用软件安装</a>
-    </h1>
-  
+        <h3 id="1-安装网易云音乐"><a href="#1-安装网易云音乐" class="headerlink" title="1.安装网易云音乐"></a>1.安装网易云音乐</h3><p>FZUG.repo，确保里面有开启[fzug-testing]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[fzug-testing]</span><br><span class="line">name=FZUG fc$releasever - Testing</span><br><span class="line">baseurl=https://repo.fdzh.org/FZUG/testing/$releasever/$basearch/</span><br><span class="line">skip_if_unavailable=True</span><br><span class="line">metadata_expire=1d</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure></p>
+<p>然后 <code>sudo dnf install netease-cloud-music</code>  OK!</p>
+<blockquote>
+<p>参考：<a href="https://github.com/FZUG/repo/issues/111" target="_blank" rel="external">https://github.com/FZUG/repo/issues/111</a><br><a id="more"></a></p>
+</blockquote>
+<p><strong>点评：</strong>网易良心，linux下的云音乐使用起来跟window下体验一样一样的，非常酸爽！在此小小的鄙视下腾讯的QQ for linux</p>
+<h3 id="2-安装-Electronic-WeChat"><a href="#2-安装-Electronic-WeChat" class="headerlink" title="2.安装 Electronic WeChat"></a>2.安装 Electronic WeChat</h3><p>Electronic WeChat是开源爱好者用electron 框架开发的微信客户端可在linux下使用</p>
+<h6 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h6><p><code>wget https://repo.fdzh.org/FZUG/testing/24/x86_64/wechat-1.3.0-3.git5058348.fc24.x86_64.rpm</code></p>
+<h6 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h6><p><code>sudo rpm -ivh wechat-1.3.0-3.git5058348.fc24.x86_64.rpm</code><br>提示需要安装 electron </p>
+<h6 id="安装-electron"><a href="#安装-electron" class="headerlink" title="安装 electron"></a>安装 electron</h6><p>sudo dnf install electron</p>
+<h6 id="继续安装"><a href="#继续安装" class="headerlink" title="继续安装"></a>继续安装</h6><p><code>sudo rpm -ivh wechat-1.3.0-3.git5058348.fc24.x86_64.rpm</code><br>OK！！</p>
+<h4 id="3-安装Skype"><a href="#3-安装Skype" class="headerlink" title="3.安装Skype"></a>3.安装Skype</h4><h6 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h6><p><code>wget http://download.skype.com/linux/skype-4.3.0.37-fedora.i586.rpm</code></p>
+<h6 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h6><p><code>sudo dnf install skype-4.3.0.37-fedora.i586.rpm</code><br>OK ！</p>
+<h4 id="4-安装爱壁纸"><a href="#4-安装爱壁纸" class="headerlink" title="4.安装爱壁纸"></a>4.安装爱壁纸</h4><p>官网有rpm的包</p>
+<h5 id="下载-2"><a href="#下载-2" class="headerlink" title="下载"></a>下载</h5><p><code>wget http://s.qdcdn.com/lovebizhi/LoveWallpaper4LinuxFedora.rpm</code><br>不过不能直接双击安装，应该很大可能缺少一些依赖导致安装失败<br>正确的安装方法<br><code>sudo dnf install LoveWallpaper4LinuxFedora.rpm</code><br>安装过程会下载几个python包安装完成后，可以一键设置壁纸，使用体验跟windows 下一样作为一个爱好壁纸的人来说真是太爽快了</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/07/30/wineqq-fcitx/" class="archive-article-date">
-  <time datetime="2016-07-30T03:24:59.000Z" itemprop="datePublished">7月 30</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/30/wineqq-fcitx/">wineqq fcitx 輸入法無法輸入中文</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/07/17/depload-KindleEar-on-GAE/" class="archive-article-date">
-  <time datetime="2016-07-17T05:49:36.000Z" itemprop="datePublished">7月 17</time>
-</a>
+    </div>
+    <footer class="article-footer">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/17/depload-KindleEar-on-GAE/">部署自定义kindle推送 KindleEar 到 GAE</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/07/17/wiznote中文输入/" class="archive-article-date">
-  <time datetime="2016-07-17T05:40:03.000Z" itemprop="datePublished">7月 17</time>
-</a>
+        <a data-url="http://mrhu.tk/2016/07/30/fedora23-install-commonly-used-software/" data-id="cir8nqy2i000gnlfythd3dtsg" class="article-share-link" data-share="baidu">分享到</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/17/wiznote中文输入/">解决wiznote linux 客户端中文输入的问题</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/07/17/Python-selenium-unittest-HTMLTestRunner/" class="archive-article-date">
-  <time datetime="2016-07-17T05:27:09.000Z" itemprop="datePublished">7月 17</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/17/Python-selenium-unittest-HTMLTestRunner/">Python selenium unittest 测试实例</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/07/17/install-appium-on-macos/" class="archive-article-date">
-  <time datetime="2016-07-17T05:23:30.000Z" itemprop="datePublished">7月 17</time>
-</a>
+        <a href="http://mrhu.tk/2016/07/30/fedora23-install-commonly-used-software/#disqus_thread" class="article-comment-link">评论</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/17/install-appium-on-macos/">MAC 环境下安装 Appium</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/07/17/python-list/" class="archive-article-date">
-  <time datetime="2016-07-17T05:18:13.000Z" itemprop="datePublished">7月 17</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/17/python-list/">Python list 函数踩坑小记</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网易云音乐-Skype-wechat-for-linux-爱壁纸/">网易云音乐,Skype,wechat for linux,爱壁纸</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/07/30/linux-mame-install/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          Linux下安装mame街机模拟器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/30/wineqq-fcitx/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">wineqq fcitx 輸入法無法輸入中文</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
+  <section id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
 </section>
       
       <aside id="sidebar">
@@ -345,11 +268,13 @@
 <script>
   var disqus_shortname = 'mrhutk';
   
+  var disqus_url = 'http://mrhu.tk/2016/07/30/fedora23-install-commonly-used-software/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
