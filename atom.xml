@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mrhu.tk/"/>
-  <updated>2016-07-30T04:10:15.000Z</updated>
+  <updated>2016-09-23T14:44:51.000Z</updated>
   <id>http://mrhu.tk/</id>
   
   <author>
@@ -14,6 +14,154 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>半步视频爬虫利用you-get批量下载优酷视频</title>
+    <link href="http://mrhu.tk/2016/09/23/%E5%8D%8A%E6%AD%A5%E8%A7%86%E9%A2%91%E7%88%AC%E8%99%AB%E5%88%A9%E7%94%A8you-get%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD%E4%BC%98%E9%85%B7%E8%A7%86%E9%A2%91/"/>
+    <id>http://mrhu.tk/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/</id>
+    <published>2016-09-23T14:10:55.000Z</published>
+    <updated>2016-09-23T14:44:51.000Z</updated>
+    
+    <content type="html">&lt;p&gt;为何叫半步视频爬虫呢，最近在学习爬虫，爬完妹子图后想着爬一下优酷网的电视剧，结果半天没有解析到视频的真正下载地址，本来像借助硕鼠解析正式地址后来发现，硕鼠怂了居然不同优酷的解析了估计是怕被告吧。后来发现you-get这个神器，具体看&lt;a href=&quot;https://you-get.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt;介绍吧，于是只爬取了视频播放页面的url至于解析视频地址和下载就交给you-get吧。&lt;/p&gt;
+&lt;h4 id=&quot;you-get-安装&quot;&gt;&lt;a href=&quot;#you-get-安装&quot; class=&quot;headerlink&quot; title=&quot;you-get 安装&quot;&gt;&lt;/a&gt;you-get 安装&lt;/h4&gt;&lt;p&gt;&lt;code&gt;sudo pip3 install you-get&lt;/code&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;hzrong@localhost:~/temp/$ you-get -h&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;you-get: version 0.4.536, a tiny downloader that scrapes the web.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Usage: you-get [OPTION]... [URL]...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Startup options:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -V | --version                      Print version and exit.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -h | --help                         Print help and exit.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Dry-run options: (no actual downloading)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -i | --info                         Print extracted information.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -u | --url                          Print extracted information with URLs.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         --json                         Print extracted URLs in JSON format.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Download options:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -n | --no-merge                     Do not merge video parts.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         --no-caption                   Do not download captions.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                        (subtitles, lyrics, danmaku, ...)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -f | --force                        Force overwriting existed files.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -F | --format &amp;lt;STREAM_ID&amp;gt;           Set video format to STREAM_ID.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -O | --output-filename &amp;lt;FILE&amp;gt;       Set output filename.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -o | --output-dir &amp;lt;PATH&amp;gt;            Set output directory.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -p | --player &amp;lt;PLAYER [OPTIONS]&amp;gt;    Stream extracted URL to a PLAYER.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -c | --cookies &amp;lt;COOKIES_FILE&amp;gt;       Load cookies.txt or cookies.sqlite.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -x | --http-proxy &amp;lt;HOST:PORT&amp;gt;       Use an HTTP proxy for downloading.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -y | --extractor-proxy &amp;lt;HOST:PORT&amp;gt;  Use an HTTP proxy for extracting only.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         --no-proxy                     Never use a proxy.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -s | --socks-proxy &amp;lt;HOST:PORT&amp;gt;      Use an SOCKS5 proxy for downloading.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -t | --timeout &amp;lt;SECONDS&amp;gt;            Set socket timeout.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -d | --debug                        Show traceback and other debug info.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;you-get -i [URL] 查看视频链接信息&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;hzrong@localhost:~/temp/微微一笑很倾城$ you-get -i http://v.youku.com/v_show/id_XMTY5NDg2MzY5Ng==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;site:                优酷 (Youku)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;title:               微微一笑很倾城 01&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;streams:             # Available quality and codecs&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [ DEFAULT ] _________________________________&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - format:        hd3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      container:     flv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      video-profile: 1080P&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      size:          998.1 MiB (1046567634 bytes)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    # download-with: you-get --format=hd3 [URL]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - format:        hd2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      container:     flv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      video-profile: 超清&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      size:          520.7 MiB (545959671 bytes)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    # download-with: you-get --format=hd2 [URL]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - format:        mp4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      container:     mp4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      video-profile: 高清&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      size:          275.6 MiB (288979683 bytes)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    # download-with: you-get --format=mp4 [URL]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - format:        flvhd&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      container:     flv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      video-profile: 标清&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      size:          133.2 MiB (139701758 bytes)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    # download-with: you-get --format=flvhd [URL]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;给个链接就会自动解析下载，这是太棒了！由于没有找到如何批量下载整个一部电视剧情，我想着在剧情介绍页面把所有剧集的URL爬去下来，然后扔给youget下载就好了。&lt;br&gt;将剧集列表页面每一集的url爬去下来，保存到dlUrl.txt&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#coding=utf-8&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; requests&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; bs4 &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; BeautifulSoup&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;writeFile&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(urlString)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    filename = &lt;span class=&quot;string&quot;&gt;&#39;./dlUrl.txt&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    f = open(filename,&lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    f.write(urlString)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    f.close()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;url=&lt;span class=&quot;string&quot;&gt;&#39;http://www.youku.com/show_page/id_z9cd2277647d311e5b692.html&#39;&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#《微微一笑很倾城》剧情介绍页爬取剧集url&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;headers = &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;User-agent&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;Mozilla/5.0&#39;&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;html_context = requests.get(url, headers=headers).content&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;soup = BeautifulSoup(html_context)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;contextDivs = soup.find_all(&lt;span class=&quot;string&quot;&gt;&quot;div&quot;&lt;/span&gt;, &amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;class&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;coll_10&quot;&lt;/span&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; contextDiv &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; contextDivs:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    aTags = contextDiv.find_all(&lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt;,href=&lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; aTag &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; aTags:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    urlString = aTag[&lt;span class=&quot;string&quot;&gt;&#39;href&#39;&lt;/span&gt;] +&lt;span class=&quot;string&quot;&gt;&#39;\n&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    writeFile(urlString)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;dlUrl.txt如下：&lt;br&gt;&lt;a href=&quot;http://v.youku.com/v_show/id_XMTY5ODc5Mjg5Ng==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://v.youku.com/v_show/id_XMTY5ODc5Mjg5Ng==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://v.youku.com/v_show/id_XMTY5ODc5OTkwNA==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://v.youku.com/v_show/id_XMTY5ODc5OTkwNA==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://v.youku.com/v_show/id_XMTcwMDI1MDA0NA==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://v.youku.com/v_show/id_XMTcwMDI1MDA0NA==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://v.youku.com/v_show/id_XMTcwMDI1OTA2MA==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://v.youku.com/v_show/id_XMTcwMDI1OTA2MA==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://v.youku.com/v_show/id_XMTcwMTU0MTYyOA==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://v.youku.com/v_show/id_XMTcwMTU0MTYyOA==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&lt;/a&gt;&lt;br&gt;…..&lt;br&gt;&lt;a href=&quot;http://v.youku.com/v_show/id_XMTcwMTU0NjI1Mg==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://v.youku.com/v_show/id_XMTcwMTU0NjI1Mg==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://v.youku.com/v_show/id_XMTcwMjg5MzU1Ng==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://v.youku.com/v_show/id_XMTcwMjg5MzU1Ng==.html?from=y1.6-97.3.1.9cd2277647d311e5b692&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;然后写个批量下载 shell执行下载&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;read&lt;/span&gt; line&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    you-get --format=hd2 &lt;span class=&quot;variable&quot;&gt;$line&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;done&lt;/span&gt; &amp;lt; dlUrl.txt&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;为何叫半步视频爬虫呢，最近在学习爬虫，爬完妹子图后想着爬一下优酷网的电视剧，结果半天没有解析到视频的真正下载地址，本来像借助硕鼠解析正式地址后来发现，硕鼠怂了居然不同优酷的解析了估计是怕被告吧。后来发现you-get这个神器，具体看&lt;a href=&quot;https://you-get.org/&quot;&gt;官网&lt;/a&gt;介绍吧，于是只爬取了视频播放页面的url至于解析视频地址和下载就交给you-get吧。&lt;/p&gt;
+&lt;h4 id=&quot;you-get-安装&quot;&gt;&lt;a href=&quot;#you-get-安装&quot; class=&quot;headerlink&quot; title=&quot;you-get 安装&quot;&gt;&lt;/a&gt;you-get 安装&lt;/h4&gt;&lt;p&gt;&lt;code&gt;sudo pip3 install you-get&lt;/code&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="瞎折腾" scheme="http://mrhu.tk/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
+    
+    
+      <category term="linux,python,爬虫" scheme="http://mrhu.tk/tags/linux-python-%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微信开发者工具linux版</title>
+    <link href="http://mrhu.tk/2016/09/23/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7linux%E7%89%88/"/>
+    <id>http://mrhu.tk/2016/09/23/微信开发者工具linux版/</id>
+    <published>2016-09-23T13:56:59.000Z</published>
+    <updated>2016-09-23T14:08:35.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;虽然该工具基于NODE的但官网没有打包linux版本的客户端，是滴，就是这么尿性。今天在ruby-china找到网友分享的linux版的客户端，现分享于此。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;下载nwjs-ｓｄｋ及开发者工具package.nw
+&lt;/strong&gt;&lt;br&gt;链接如下百度网盘&lt;br&gt;链接: &lt;a href=&quot;http://pan.baidu.com/s/1jIFHOs2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://pan.baidu.com/s/1jIFHOs2&lt;/a&gt; 密码: d93s&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;分别解压&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;tar -zxvf nwjs-sdk-v0.16.1-linux-x64 .tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tar -zxvf package.nw.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mv package.nw/* nwjs-sdk-v0.16.1-linux-x64/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd nwjs-sdk-v0.16.1-linux-x64/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./nw&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;虽然该工具基于NODE的但官网没有打包linux版本的客户端，是滴，就是这么尿性。今天在ruby-china找到网友分享的linux版的客户端，现分享于此。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;下载nwjs-ｓｄｋ及开发者工具
+    
+    </summary>
+    
+      <category term="linux" scheme="http://mrhu.tk/categories/linux/"/>
+    
+    
+      <category term="linux,微信开发者工具" scheme="http://mrhu.tk/tags/linux-%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RDBMS vs NoSQL</title>
+    <link href="http://mrhu.tk/2016/09/23/RDBMSvsNoSQL/"/>
+    <id>http://mrhu.tk/2016/09/23/RDBMSvsNoSQL/</id>
+    <published>2016-09-23T13:43:12.000Z</published>
+    <updated>2016-09-23T13:50:30.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;最近在看mongodb的教程，看到RDBMS与NoSQL的笔记时，觉得挺详细的记录备忘。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;RDBMS-vs-NoSQL&quot;&gt;&lt;a href=&quot;#RDBMS-vs-NoSQL&quot; class=&quot;headerlink&quot; title=&quot;RDBMS vs NoSQL&quot;&gt;&lt;/a&gt;RDBMS vs NoSQL&lt;/h2&gt;&lt;hr&gt;
+&lt;h3 id=&quot;RDBMS&quot;&gt;&lt;a href=&quot;#RDBMS&quot; class=&quot;headerlink&quot; title=&quot;RDBMS&quot;&gt;&lt;/a&gt;RDBMS&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;高度组织化结构化数据 &lt;/li&gt;
+&lt;li&gt;结构化查询语言（SQL） (SQL) &lt;/li&gt;
+&lt;li&gt;数据和关系都存储在单独的表中。 &lt;/li&gt;
+&lt;li&gt;数据操纵语言，数据定义语言 &lt;/li&gt;
+&lt;li&gt;严格的一致性&lt;/li&gt;
+&lt;li&gt;基础事务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;NoSQL&quot;&gt;&lt;a href=&quot;#NoSQL&quot; class=&quot;headerlink&quot; title=&quot;NoSQL&quot;&gt;&lt;/a&gt;NoSQL&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;代表着不仅仅是SQL&lt;/li&gt;
+&lt;li&gt;没有声明性查询语言&lt;/li&gt;
+&lt;li&gt;没有预定义的模式&lt;/li&gt;
+&lt;li&gt;键-值对存储，列存储，文档存储，图形数据库&lt;/li&gt;
+&lt;li&gt;最终一致性，而非ACID属性&lt;/li&gt;
+&lt;li&gt;非结构化和不可预知的数据&lt;/li&gt;
+&lt;li&gt;CAP定理 &lt;/li&gt;
+&lt;li&gt;高性能，高可用性和可伸缩性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;NoSQL的优点-缺点&quot;&gt;&lt;a href=&quot;#NoSQL的优点-缺点&quot; class=&quot;headerlink&quot; title=&quot;NoSQL的优点/缺点&quot;&gt;&lt;/a&gt;NoSQL的优点/缺点&lt;/h3&gt;&lt;h5 id=&quot;优点&quot;&gt;&lt;a href=&quot;#优点&quot; class=&quot;headerlink&quot; title=&quot;优点:&quot;&gt;&lt;/a&gt;优点:&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;高可扩展性&lt;/li&gt;
+&lt;li&gt;分布式计算&lt;/li&gt;
+&lt;li&gt;低成本&lt;/li&gt;
+&lt;li&gt;架构的灵活性，半结构化数据&lt;/li&gt;
+&lt;li&gt;没有复杂的关系&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&quot;缺点&quot;&gt;&lt;a href=&quot;#缺点&quot; class=&quot;headerlink&quot; title=&quot;缺点:&quot;&gt;&lt;/a&gt;缺点:&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;没有标准化&lt;/li&gt;
+&lt;li&gt;有限的查询功能（到目前为止）&lt;/li&gt;
+&lt;li&gt;最终一致是不直观的程序&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近在看mongodb的教程，看到RDBMS与NoSQL的笔记时，觉得挺详细的记录备忘。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;RDBMS-vs-NoSQL&quot;&gt;&lt;a href=&quot;#RDBMS-vs-NoSQL&quot; class=&quot;head
+    
+    </summary>
+    
+      <category term="DB" scheme="http://mrhu.tk/categories/DB/"/>
+    
+    
+      <category term="RDBMS,NoSQL" scheme="http://mrhu.tk/tags/RDBMS-NoSQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ssh-keygen命令详解</title>
+    <link href="http://mrhu.tk/2016/09/23/ssh-keygen%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://mrhu.tk/2016/09/23/ssh-keygen命令详解/</id>
+    <published>2016-09-23T13:34:46.000Z</published>
+    <updated>2016-09-23T13:41:27.000Z</updated>
+    
+    <content type="html">&lt;hr&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ssh-keygen&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-b：指定密钥长度；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -e：读取openssh的私钥或者公钥文件； &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-C：添加注释； -f：指定用来保存密钥的文件名；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -i：读取未加密的ssh-v2兼容的私钥/公钥文件，然后在标准输出设备上显示openssh兼容的私钥/公钥；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -l：显示公钥文件的指纹数据；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -N：提供一个新密语；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -P：提供（旧）密语；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -q：静默模式； &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-t：指定要创建的密钥类型。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;示例：
+&lt;/strong&gt;&lt;br&gt;&lt;code&gt;ssh-keygen -t rsa -b 4096 -C &amp;quot;imhzr@foxmail.com&amp;quot;&lt;/code&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
+    
+    </summary>
+    
+      <category term="linux" scheme="http://mrhu.tk/categories/linux/"/>
+    
+    
+      <category term="ssh-keygen" scheme="http://mrhu.tk/tags/ssh-keygen/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux下安装mame街机模拟器</title>
