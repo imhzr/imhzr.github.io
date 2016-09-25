@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>當然我在胡說</title>
-  
+  <subtitle>其实我也不知道我要做什么，但是我觉得我要做点什么！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mrhu.tk/"/>
