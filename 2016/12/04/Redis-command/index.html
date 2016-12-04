@@ -7,18 +7,18 @@
   <title>Redis 常用命令总结 | 當然我在胡說</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Redis常用操作命令总结，方便随用随查。
-连接操作相关的命令1234567redis-cli #连接本地服务redis-cli -h host -p port -a yourpassword #远程连接quit  #关闭连接（connection）config get requirepass #验证是否设置了密码config set requirepass yourpassword #设置密码c">
+连接操作相关的命令12345678redis-cli #连接本地服务redis-cli -h host -p port -a yourpassword #远程连接quit  #关闭连接（connection）config get requirepass #验证是否设置了密码config set requirepass yourpassword #设置密码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis 常用命令总结">
 <meta property="og:url" content="http://mrhu.tk/2016/12/04/Redis-command/index.html">
 <meta property="og:site_name" content="當然我在胡說">
 <meta property="og:description" content="Redis常用操作命令总结，方便随用随查。
-连接操作相关的命令1234567redis-cli #连接本地服务redis-cli -h host -p port -a yourpassword #远程连接quit  #关闭连接（connection）config get requirepass #验证是否设置了密码config set requirepass yourpassword #设置密码c">
-<meta property="og:updated_time" content="2016-12-04T09:29:38.000Z">
+连接操作相关的命令12345678redis-cli #连接本地服务redis-cli -h host -p port -a yourpassword #远程连接quit  #关闭连接（connection）config get requirepass #验证是否设置了密码config set requirepass yourpassword #设置密码">
+<meta property="og:updated_time" content="2016-12-04T09:51:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis 常用命令总结">
 <meta name="twitter:description" content="Redis常用操作命令总结，方便随用随查。
-连接操作相关的命令1234567redis-cli #连接本地服务redis-cli -h host -p port -a yourpassword #远程连接quit  #关闭连接（connection）config get requirepass #验证是否设置了密码config set requirepass yourpassword #设置密码c">
+连接操作相关的命令12345678redis-cli #连接本地服务redis-cli -h host -p port -a yourpassword #远程连接quit  #关闭连接（connection）config get requirepass #验证是否设置了密码config set requirepass yourpassword #设置密码">
   
     <link rel="alternative" href="/atom.xml" title="當然我在胡說" type="application/atom+xml">
   
@@ -104,7 +104,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Redis常用操作命令总结，方便随用随查。</p>
-<h3 id="连接操作相关的命令"><a href="#连接操作相关的命令" class="headerlink" title="连接操作相关的命令"></a>连接操作相关的命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">redis-cli <span class="comment">#连接本地服务</span></span><br><span class="line">redis-cli -h host -p port <span class="_">-a</span> yourpassword <span class="comment">#远程连接</span></span><br><span class="line">quit  <span class="comment">#关闭连接（connection）</span></span><br><span class="line">config get requirepass <span class="comment">#验证是否设置了密码</span></span><br><span class="line">config <span class="built_in">set</span> requirepass yourpassword <span class="comment">#设置密码</span></span><br><span class="line">config <span class="built_in">set</span> requirepass “” <span class="comment">#清空密码</span></span><br><span class="line">auth yourpassword <span class="comment">#简单密码认证</span></span><br></pre></td></tr></table></figure>
+<h3 id="连接操作相关的命令"><a href="#连接操作相关的命令" class="headerlink" title="连接操作相关的命令"></a>连接操作相关的命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">redis-cli <span class="comment">#连接本地服务</span></span><br><span class="line">redis-cli -h host -p port <span class="_">-a</span> yourpassword <span class="comment">#远程连接</span></span><br><span class="line">quit  <span class="comment">#关闭连接（connection）</span></span><br><span class="line">config get requirepass <span class="comment">#验证是否设置了密码</span></span><br><span class="line">config <span class="built_in">set</span> requirepass yourpassword <span class="comment">#设置密码</span></span><br><span class="line">config <span class="built_in">set</span> requirepass “” <span class="comment">#清空密码</span></span><br><span class="line">auth yourpassword <span class="comment">#简单密码认证</span></span><br><span class="line">select index <span class="comment">#切换到指定的数据库，数据库索引号 index 用数字值指定，以 0 作为起始索引值</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">save <span class="comment">#将数据同步保存到磁盘，在redis目录中创建dump.rdb备份文件</span></span><br><span class="line">config get dir <span class="comment">#获取redis目录，一般为：/var/lib/redis/</span></span><br><span class="line">bgsave <span class="comment">#将数据异步保存到磁盘</span></span><br><span class="line">lastsav <span class="comment">#返回上次成功将数据保存到磁盘的Unix时戳</span></span><br><span class="line">shundown <span class="comment">#将数据同步保存到磁盘，然后关闭服务</span></span><br></pre></td></tr></table></figure>
 <h3 id="服务控制"><a href="#服务控制" class="headerlink" title="服务控制"></a>服务控制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">info <span class="comment">#提供服务器的信息和统计</span></span><br><span class="line">monitor <span class="comment">#实时转储收到的请求</span></span><br><span class="line">slaveof <span class="comment">#改变复制策略设置</span></span><br><span class="line">config <span class="comment">#在运行时配置Redis服务器</span></span><br></pre></td></tr></table></figure>
@@ -119,7 +119,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/12/04/Redis-command/" data-id="ciwagb53b000g0jfyo6ix4els" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2016/12/04/Redis-command/" data-id="ciwaj3sz3001xoofy8z845twh" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -134,6 +134,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/12/04/python-redis/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          Python操作 redis 示例
+        
+      </div>
+    </a>
   
   
     <a href="/2016/12/04/Redis-intro/" id="article-nav-older" class="article-nav-link-wrap">
@@ -158,7 +167,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/瞎折腾/">瞎折腾</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/瞎折腾/">瞎折腾</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -167,7 +176,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Appium/" style="font-size: 10px;">Appium</a> <a href="/tags/HTMLTestRunner/" style="font-size: 10px;">HTMLTestRunner</a> <a href="/tags/KindleEar-GAE/" style="font-size: 10px;">KindleEar,GAE</a> <a href="/tags/RDBMS-NoSQL/" style="font-size: 10px;">RDBMS,NoSQL</a> <a href="/tags/linux-python-爬虫/" style="font-size: 10px;">linux,python,爬虫</a> <a href="/tags/linux-微信开发者工具/" style="font-size: 10px;">linux,微信开发者工具</a> <a href="/tags/mame-街机模拟器-拳皇/" style="font-size: 10px;">mame,街机模拟器,拳皇</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/ssh-keygen/" style="font-size: 10px;">ssh-keygen</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/winqq-fcitx-中文输入法/" style="font-size: 10px;">winqq,fcitx,中文输入法</a> <a href="/tags/中文输入法-linux-wiznote/" style="font-size: 10px;">中文输入法,linux,wiznote</a> <a href="/tags/网易云音乐-Skype-wechat-for-linux-爱壁纸/" style="font-size: 10px;">网易云音乐,Skype,wechat for linux,爱壁纸</a>
+      <a href="/tags/Appium/" style="font-size: 10px;">Appium</a> <a href="/tags/HTMLTestRunner/" style="font-size: 10px;">HTMLTestRunner</a> <a href="/tags/KindleEar-GAE/" style="font-size: 10px;">KindleEar,GAE</a> <a href="/tags/RDBMS-NoSQL/" style="font-size: 10px;">RDBMS,NoSQL</a> <a href="/tags/linux-python-爬虫/" style="font-size: 10px;">linux,python,爬虫</a> <a href="/tags/linux-微信开发者工具/" style="font-size: 10px;">linux,微信开发者工具</a> <a href="/tags/mame-街机模拟器-拳皇/" style="font-size: 10px;">mame,街机模拟器,拳皇</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/redis-python/" style="font-size: 10px;">redis,python</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/ssh-keygen/" style="font-size: 10px;">ssh-keygen</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/winqq-fcitx-中文输入法/" style="font-size: 10px;">winqq,fcitx,中文输入法</a> <a href="/tags/中文输入法-linux-wiznote/" style="font-size: 10px;">中文输入法,linux,wiznote</a> <a href="/tags/网易云音乐-Skype-wechat-for-linux-爱壁纸/" style="font-size: 10px;">网易云音乐,Skype,wechat for linux,爱壁纸</a>
     </div>
   </div>
 
@@ -176,7 +185,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
@@ -186,6 +195,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/12/04/python-redis/">Python操作 redis 示例</a>
+          </li>
         
           <li>
             <a href="/2016/12/04/Redis-command/">Redis 常用命令总结</a>
@@ -201,10 +214,6 @@
         
           <li>
             <a href="/2016/09/23/微信开发者工具linux版/">微信开发者工具linux版</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/23/RDBMSvsNoSQL/">RDBMS vs NoSQL</a>
           </li>
         
       </ul>

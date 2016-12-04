@@ -75,6 +75,64 @@
     <div class="outer">
       <section id="main">
   
+    <article id="post-python-redis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/04/python-redis/" class="article-date">
+  <time datetime="2016-12-04T10:50:38.000Z" itemprop="datePublished">2016-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/redis/">redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/04/python-redis/">Python操作 redis 示例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文主要介绍通过python对redis数据进行操作。</p>
+<h3 id="1-安装Python操作的redis库"><a href="#1-安装Python操作的redis库" class="headerlink" title="1.安装Python操作的redis库"></a>1.安装Python操作的redis库</h3><p><code>pip install redis</code><br>Redis的Python驱动源码地址是<a href="https://github.com/andymccurdy/redis-py">https://github.com/andymccurdy/redis-py</a><br>redis-py使用redis模块的StrictRedis 类对redis进行操作。大部分操作和redis官方提供的命令语法相同，但是有些命令的使用例外。</p>
+<ul>
+<li>redis-py 出于安全方面的考虑，没有引入SELECT命令</li>
+<li>redis-py 使用delete 代替 DEL 命令</li>
+<li>redis-py 使用config_get和config_set 代替CONFIG GET和CONFIG SET
+        
+          <p class="article-more-link">
+            <a href="/2016/12/04/python-redis/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2016/12/04/python-redis/" data-id="ciwaj3sxs0017oofy023hydhu" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://mrhu.tk/2016/12/04/python-redis/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis-python/">redis,python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Redis-command" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/04/Redis-command/" class="article-date">
@@ -102,7 +160,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Redis常用操作命令总结，方便随用随查。</p>
-<h3 id="连接操作相关的命令"><a href="#连接操作相关的命令" class="headerlink" title="连接操作相关的命令"></a>连接操作相关的命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">redis-cli <span class="comment">#连接本地服务</span></span><br><span class="line">redis-cli -h host -p port <span class="_">-a</span> yourpassword <span class="comment">#远程连接</span></span><br><span class="line">quit  <span class="comment">#关闭连接（connection）</span></span><br><span class="line">config get requirepass <span class="comment">#验证是否设置了密码</span></span><br><span class="line">config <span class="built_in">set</span> requirepass yourpassword <span class="comment">#设置密码</span></span><br><span class="line">config <span class="built_in">set</span> requirepass “” <span class="comment">#清空密码</span></span><br><span class="line">auth yourpassword <span class="comment">#简单密码认证</span></span><br></pre></td></tr></table></figure>
+<h3 id="连接操作相关的命令"><a href="#连接操作相关的命令" class="headerlink" title="连接操作相关的命令"></a>连接操作相关的命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">redis-cli <span class="comment">#连接本地服务</span></span><br><span class="line">redis-cli -h host -p port <span class="_">-a</span> yourpassword <span class="comment">#远程连接</span></span><br><span class="line">quit  <span class="comment">#关闭连接（connection）</span></span><br><span class="line">config get requirepass <span class="comment">#验证是否设置了密码</span></span><br><span class="line">config <span class="built_in">set</span> requirepass yourpassword <span class="comment">#设置密码</span></span><br><span class="line">config <span class="built_in">set</span> requirepass “” <span class="comment">#清空密码</span></span><br><span class="line">auth yourpassword <span class="comment">#简单密码认证</span></span><br><span class="line">select index <span class="comment">#切换到指定的数据库，数据库索引号 index 用数字值指定，以 0 作为起始索引值</span></span><br></pre></td></tr></table></figure>
         
           <p class="article-more-link">
             <a href="/2016/12/04/Redis-command/#more">Read More</a>
@@ -112,7 +170,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/12/04/Redis-command/" data-id="ciwagb53b000g0jfyo6ix4els" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2016/12/04/Redis-command/" data-id="ciwaj3sz3001xoofy8z845twh" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -172,7 +230,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/12/04/Redis-intro/" data-id="ciwagb53g000l0jfyd2syq5wg" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2016/12/04/Redis-intro/" data-id="ciwaj3sx7000goofyxig9go6t" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -226,7 +284,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/" data-id="ciwagb54i001m0jfy402g77eu" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/" data-id="ciwaj3sy7001ooofy2wmk7774" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -280,7 +338,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/09/23/微信开发者工具linux版/" data-id="ciwagb54k001q0jfyi4s9dw3s" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2016/09/23/微信开发者工具linux版/" data-id="ciwaj3sy9001soofykncyb6ja" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -363,7 +421,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/09/23/RDBMSvsNoSQL/" data-id="ciwagb52w00000jfym5d2xh9q" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2016/09/23/RDBMSvsNoSQL/" data-id="ciwaj3sx2000boofytt98y1r9" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -415,7 +473,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/09/23/ssh-keygen命令详解/" data-id="ciwagb544001a0jfye0nr5vz0" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2016/09/23/ssh-keygen命令详解/" data-id="ciwaj3sxw001coofy68u12shr" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -471,7 +529,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/07/30/linux-mame-install/" data-id="ciwagb53x00120jfy93tpmffb" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2016/07/30/linux-mame-install/" data-id="ciwaj3sxl000zoofyzlo05oys" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -527,7 +585,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/07/30/fedora23-install-commonly-used-software/" data-id="ciwagb53q000t0jfyu94gfg2h" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2016/07/30/fedora23-install-commonly-used-software/" data-id="ciwaj3sxe000qoofyv3hqdr6n" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -580,7 +638,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/07/30/wineqq-fcitx/" data-id="ciwagb548001e0jfy6cu7uooj" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2016/07/30/wineqq-fcitx/" data-id="ciwaj3sxz001goofyakc8azt1" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -589,62 +647,6 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/winqq-fcitx-中文输入法/">winqq,fcitx,中文输入法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-depload-KindleEar-on-GAE" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/17/depload-KindleEar-on-GAE/" class="article-date">
-  <time datetime="2016-07-17T05:49:36.000Z" itemprop="datePublished">2016-07-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/瞎折腾/">瞎折腾</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/17/depload-KindleEar-on-GAE/">部署自定义kindle推送 KindleEar 到 GAE</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>参考：<a href="http://kindlefere.com/post/19.html">http://kindlefere.com/post/19.html</a><br><a href="https://github.com/cdhigh/KindleEar">https://github.com/cdhigh/KindleEar</a></p>
-</blockquote>
-<p>自从入手kindle后，一直想好好利用。<br>在kindle 伴侣网站看到一篇关于部署自定义kindle推送的文章，于是决定自己折腾个，部署过程中踩的坑如下：<br>
-        
-          <p class="article-more-link">
-            <a href="/2016/07/17/depload-KindleEar-on-GAE/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://mrhu.tk/2016/07/17/depload-KindleEar-on-GAE/" data-id="ciwagb53k000o0jfycfpu9ltb" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://mrhu.tk/2016/07/17/depload-KindleEar-on-GAE/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KindleEar-GAE/">KindleEar,GAE</a></li></ul>
 
     </footer>
   </div>
@@ -666,7 +668,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/瞎折腾/">瞎折腾</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/瞎折腾/">瞎折腾</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -675,7 +677,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Appium/" style="font-size: 10px;">Appium</a> <a href="/tags/HTMLTestRunner/" style="font-size: 10px;">HTMLTestRunner</a> <a href="/tags/KindleEar-GAE/" style="font-size: 10px;">KindleEar,GAE</a> <a href="/tags/RDBMS-NoSQL/" style="font-size: 10px;">RDBMS,NoSQL</a> <a href="/tags/linux-python-爬虫/" style="font-size: 10px;">linux,python,爬虫</a> <a href="/tags/linux-微信开发者工具/" style="font-size: 10px;">linux,微信开发者工具</a> <a href="/tags/mame-街机模拟器-拳皇/" style="font-size: 10px;">mame,街机模拟器,拳皇</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/ssh-keygen/" style="font-size: 10px;">ssh-keygen</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/winqq-fcitx-中文输入法/" style="font-size: 10px;">winqq,fcitx,中文输入法</a> <a href="/tags/中文输入法-linux-wiznote/" style="font-size: 10px;">中文输入法,linux,wiznote</a> <a href="/tags/网易云音乐-Skype-wechat-for-linux-爱壁纸/" style="font-size: 10px;">网易云音乐,Skype,wechat for linux,爱壁纸</a>
+      <a href="/tags/Appium/" style="font-size: 10px;">Appium</a> <a href="/tags/HTMLTestRunner/" style="font-size: 10px;">HTMLTestRunner</a> <a href="/tags/KindleEar-GAE/" style="font-size: 10px;">KindleEar,GAE</a> <a href="/tags/RDBMS-NoSQL/" style="font-size: 10px;">RDBMS,NoSQL</a> <a href="/tags/linux-python-爬虫/" style="font-size: 10px;">linux,python,爬虫</a> <a href="/tags/linux-微信开发者工具/" style="font-size: 10px;">linux,微信开发者工具</a> <a href="/tags/mame-街机模拟器-拳皇/" style="font-size: 10px;">mame,街机模拟器,拳皇</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/redis-python/" style="font-size: 10px;">redis,python</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/ssh-keygen/" style="font-size: 10px;">ssh-keygen</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/winqq-fcitx-中文输入法/" style="font-size: 10px;">winqq,fcitx,中文输入法</a> <a href="/tags/中文输入法-linux-wiznote/" style="font-size: 10px;">中文输入法,linux,wiznote</a> <a href="/tags/网易云音乐-Skype-wechat-for-linux-爱壁纸/" style="font-size: 10px;">网易云音乐,Skype,wechat for linux,爱壁纸</a>
     </div>
   </div>
 
@@ -684,7 +686,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
@@ -694,6 +696,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/12/04/python-redis/">Python操作 redis 示例</a>
+          </li>
         
           <li>
             <a href="/2016/12/04/Redis-command/">Redis 常用命令总结</a>
@@ -709,10 +715,6 @@
         
           <li>
             <a href="/2016/09/23/微信开发者工具linux版/">微信开发者工具linux版</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/23/RDBMSvsNoSQL/">RDBMS vs NoSQL</a>
           </li>
         
       </ul>

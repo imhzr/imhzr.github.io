@@ -4,36 +4,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Python list 函数踩坑小记 | 當然我在胡說</title>
+  <title>Python操作 redis 示例 | 當然我在胡說</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近发现的 python list 函数的小坑，记录备忘。python 版本为 2.7
-
-Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。这个有点类似与java中的数组。我们知道可以使用索引的方式输出 List 中的元素。（索引从 0 开始，也就是说，第一个元素的索引是0，第二个元素的索引是1，以此类推）
-
-比如：输出第一个元素即, 如下图：">
+  <meta name="description" content="本文主要介绍通过python对redis数据进行操作。
+1.安装Python操作的redis库pip install redisRedis的Python驱动源码地址是https://github.com/andymccurdy/redis-pyredis-py使用redis模块的StrictRedis 类对redis进行操作。大部分操作和redis官方提供的命令语法相同，但是有些命令的使用例外。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python list 函数踩坑小记">
-<meta property="og:url" content="http://mrhu.tk/2016/07/17/python-list/index.html">
+<meta property="og:title" content="Python操作 redis 示例">
+<meta property="og:url" content="http://mrhu.tk/2016/12/04/python-redis/index.html">
 <meta property="og:site_name" content="當然我在胡說">
-<meta property="og:description" content="最近发现的 python list 函数的小坑，记录备忘。python 版本为 2.7
-
-Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。这个有点类似与java中的数组。我们知道可以使用索引的方式输出 List 中的元素。（索引从 0 开始，也就是说，第一个元素的索引是0，第二个元素的索引是1，以此类推）
-
-比如：输出第一个元素即, 如下图：">
-<meta property="og:image" content="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/1278096121.png">
-<meta property="og:image" content="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/4247212664.png">
-<meta property="og:image" content="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/2045334997.png">
-<meta property="og:image" content="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/2211568145.png">
-<meta property="og:image" content="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/671281614.png">
-<meta property="og:updated_time" content="2016-07-17T05:31:44.000Z">
+<meta property="og:description" content="本文主要介绍通过python对redis数据进行操作。
+1.安装Python操作的redis库pip install redisRedis的Python驱动源码地址是https://github.com/andymccurdy/redis-pyredis-py使用redis模块的StrictRedis 类对redis进行操作。大部分操作和redis官方提供的命令语法相同，但是有些命令的使用例外。">
+<meta property="og:updated_time" content="2016-12-04T10:59:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python list 函数踩坑小记">
-<meta name="twitter:description" content="最近发现的 python list 函数的小坑，记录备忘。python 版本为 2.7
-
-Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。这个有点类似与java中的数组。我们知道可以使用索引的方式输出 List 中的元素。（索引从 0 开始，也就是说，第一个元素的索引是0，第二个元素的索引是1，以此类推）
-
-比如：输出第一个元素即, 如下图：">
-<meta name="twitter:image" content="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/1278096121.png">
+<meta name="twitter:title" content="Python操作 redis 示例">
+<meta name="twitter:description" content="本文主要介绍通过python对redis数据进行操作。
+1.安装Python操作的redis库pip install redisRedis的Python驱动源码地址是https://github.com/andymccurdy/redis-pyredis-py使用redis模块的StrictRedis 类对redis进行操作。大部分操作和redis官方提供的命令语法相同，但是有些命令的使用例外。">
   
     <link rel="alternative" href="/atom.xml" title="當然我在胡說" type="application/atom+xml">
   
@@ -92,14 +77,14 @@ Python内置的一种数据类型是列表：list。list是一种有序的集合
 </header>
 
     <div class="outer">
-      <section id="main"><article id="post-python-list" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-python-redis" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/07/17/python-list/" class="article-date">
-  <time datetime="2016-07-17T05:18:13.000Z" itemprop="datePublished">2016-07-17</time>
+    <a href="/2016/12/04/python-redis/" class="article-date">
+  <time datetime="2016-12-04T10:50:38.000Z" itemprop="datePublished">2016-12-04</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/python/">python</a>
+    <a class="article-category-link" href="/categories/redis/">redis</a>
   </div>
 
   </div>
@@ -110,7 +95,7 @@ Python内置的一种数据类型是列表：list。list是一种有序的集合
         
   
     <h1 class="article-title" itemprop="name">
-      Python list 函数踩坑小记
+      Python操作 redis 示例
     </h1>
   
 
@@ -118,34 +103,34 @@ Python内置的一种数据类型是列表：list。list是一种有序的集合
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近发现的 python list 函数的小坑，记录备忘。python 版本为 2.7</p>
+        <p>本文主要介绍通过python对redis数据进行操作。</p>
+<h3 id="1-安装Python操作的redis库"><a href="#1-安装Python操作的redis库" class="headerlink" title="1.安装Python操作的redis库"></a>1.安装Python操作的redis库</h3><p><code>pip install redis</code><br>Redis的Python驱动源码地址是<a href="https://github.com/andymccurdy/redis-py" target="_blank" rel="external">https://github.com/andymccurdy/redis-py</a><br>redis-py使用redis模块的StrictRedis 类对redis进行操作。大部分操作和redis官方提供的命令语法相同，但是有些命令的使用例外。</p>
+<ul>
+<li>redis-py 出于安全方面的考虑，没有引入SELECT命令</li>
+<li>redis-py 使用delete 代替 DEL 命令</li>
+<li>redis-py 使用config_get和config_set 代替CONFIG GET和CONFIG SET<a id="more"></a>
+</li>
+</ul>
+<p>关于redis中数据库名的说明</p>
 <blockquote>
-<p>Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。这个有点类似与java中的数组。<br>我们知道可以使用索引的方式输出 List 中的元素。（索引从 0 开始，也就是说，第一个元素的索引是0，第二个元素的索引是1，以此类推）</p>
+<p>Redis Select 命令用于切换到指定的数据库，数据库索引号 index 用数字值指定，以 0 作为起始索引值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; <span class="built_in">set</span> db_number 0    <span class="comment"># 默认使用 0 号数据库</span></span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; select 1           <span class="comment"># 使用 1 号数据库</span></span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379[1]&gt; get db_number   <span class="comment"># 已经切换到1号数据库，注意Redis现在的命令行多了个[1]</span></span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<p>比如：输出第一个元素即, 如下图：</p>
-<a id="more"></a>
-<p><img src="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/1278096121.png" alt="python_list01.png"></p>
-<p>还有另外一个特性，输出最后一个元素print L[-1] 如下图：<br><img src="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/4247212664.png" alt="python_list02.png"></p>
-<p>append 函数可以在List最后追加 List 末尾 如下图：<br><img src="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/2045334997.png" alt="python_list03.png"></p>
-<p>我们知道，还有个 insert() 方法，它接受两个参数，第一个参数是索引号，第二个参数是待添加的新元素：如下图，如果我们要添加一个元素到 List 开头，直接 L.insert(0,’Firest’)即可，因为第一个元素的索引号是 0 嘛。<br><img src="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/2211568145.png" alt="python_list04.png"></p>
-<p>前方高能！！</p>
-<p>那么，是否可以使用 -1 索引号 讲元素添加到末尾呢。答案是：不可以！！！ 如下图：<br><img src="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/671281614.png" alt="python_list05.png"></p>
-<p>使用 -1 作为索引，成功插入了元素，但是，但是 居然是不是最后一个元素，插入后是倒数第二个，什么鬼？！！</p>
-<p>看来如果只是想追加到最后，还是直接用 append() 函数好了。</p>
+<h3 id="2-Python代码示例"><a href="#2-Python代码示例" class="headerlink" title="2.Python代码示例"></a>2.Python代码示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line">r = redis.StrictRedis(host=<span class="string">'localhost'</span>, port=<span class="number">6379</span>, db=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#操作string示例</span></span><br><span class="line">r.set(<span class="string">'mystring'</span>, <span class="string">'Mr.Hu'</span>)   <span class="comment">#设置</span></span><br><span class="line"><span class="keyword">print</span> r.get(<span class="string">'mystring'</span>)  <span class="comment">#获取</span></span><br><span class="line">r.delete(<span class="string">'mystring'</span>) <span class="comment">#删除</span></span><br><span class="line"><span class="keyword">print</span> r.get(<span class="string">'mystring'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#操作List示例</span></span><br><span class="line">r.rpush(<span class="string">'mylist'</span>,<span class="string">'hzrong'</span>) <span class="comment">#在list尾部添加</span></span><br><span class="line">r.lpush(<span class="string">'mylist'</span>,<span class="string">'hello'</span>) <span class="comment">#在list头部添加</span></span><br><span class="line"><span class="keyword">print</span> r.llen(<span class="string">'mylist'</span>) <span class="comment">#返回list长度</span></span><br><span class="line"><span class="keyword">print</span> r.lrange(<span class="string">'mylist'</span>,<span class="number">0</span>,<span class="number">2</span>) <span class="comment">#输出list</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#操作set示例</span></span><br><span class="line">r.sadd(<span class="string">'myset'</span>,<span class="string">'python'</span>) <span class="comment">#添加</span></span><br><span class="line">r.sadd(<span class="string">'myset'</span>,<span class="string">'dev'</span>)</span><br><span class="line"><span class="keyword">print</span> r.smembers(<span class="string">'myset'</span>) <span class="comment">#输出set中所有元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#操作Hash示例</span></span><br><span class="line">r.hset(<span class="string">'myhash'</span>,<span class="string">'key_zreo'</span>,<span class="string">'零号'</span>) <span class="comment">#添加</span></span><br><span class="line"><span class="keyword">print</span> r.hget(<span class="string">'myhash'</span>,<span class="string">'key_zreo'</span>) <span class="comment">#返回hash表中key_zero的值</span></span><br></pre></td></tr></table></figure>
+<p>输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[hzrong@bogon]$ python PyRedis.py</span><br><span class="line">Mr.Hu</span><br><span class="line">None</span><br><span class="line">2</span><br><span class="line">[<span class="string">'hello'</span>, <span class="string">'hzrong'</span>]</span><br><span class="line"><span class="built_in">set</span>([<span class="string">'python'</span>, <span class="string">'dev'</span>])</span><br><span class="line">零号</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/07/17/python-list/" data-id="ciwaj3sxp0013oofyku3u4qdi" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2016/12/04/python-redis/" data-id="ciwaj3sxs0017oofy023hydhu" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://mrhu.tk/2016/07/17/python-list/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://mrhu.tk/2016/12/04/python-redis/#ds-thread" class="article-comment-link">评论</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis-python/">redis,python</a></li></ul>
 
     </footer>
   </div>
@@ -153,15 +138,11 @@ Python内置的一种数据类型是列表：list。list是一种有序的集合
     
 <nav id="article-nav">
   
-    <a href="/2016/07/17/install-appium-on-macos/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">
-        
-          MAC 环境下安装 Appium
-        
-      </div>
-    </a>
   
+    <a href="/2016/12/04/Redis-command/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">Redis 常用命令总结</div>
+    </a>
   
 </nav>
 
@@ -170,7 +151,7 @@ Python内置的一种数据类型是列表：list。list是一种有序的集合
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2016/07/17/python-list/" data-title="Python list 函数踩坑小记" data-url="http://mrhu.tk/2016/07/17/python-list/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/12/04/python-redis/" data-title="Python操作 redis 示例" data-url="http://mrhu.tk/2016/12/04/python-redis/"></div>
   </section>
 </section>
       

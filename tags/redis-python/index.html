@@ -4,36 +4,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Python list 函数踩坑小记 | 當然我在胡說</title>
+  <title>Tag: redis,python | 當然我在胡說</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近发现的 python list 函数的小坑，记录备忘。python 版本为 2.7
-
-Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。这个有点类似与java中的数组。我们知道可以使用索引的方式输出 List 中的元素。（索引从 0 开始，也就是说，第一个元素的索引是0，第二个元素的索引是1，以此类推）
-
-比如：输出第一个元素即, 如下图：">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python list 函数踩坑小记">
-<meta property="og:url" content="http://mrhu.tk/2016/07/17/python-list/index.html">
+  <meta name="description" content="Mr.Huの个人博客胡说(當然我在胡說），linux瞎折腾，python学习笔记">
+<meta property="og:type" content="website">
+<meta property="og:title" content="當然我在胡說">
+<meta property="og:url" content="http://mrhu.tk/tags/redis-python/index.html">
 <meta property="og:site_name" content="當然我在胡說">
-<meta property="og:description" content="最近发现的 python list 函数的小坑，记录备忘。python 版本为 2.7
-
-Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。这个有点类似与java中的数组。我们知道可以使用索引的方式输出 List 中的元素。（索引从 0 开始，也就是说，第一个元素的索引是0，第二个元素的索引是1，以此类推）
-
-比如：输出第一个元素即, 如下图：">
-<meta property="og:image" content="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/1278096121.png">
-<meta property="og:image" content="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/4247212664.png">
-<meta property="og:image" content="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/2045334997.png">
-<meta property="og:image" content="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/2211568145.png">
-<meta property="og:image" content="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/671281614.png">
-<meta property="og:updated_time" content="2016-07-17T05:31:44.000Z">
+<meta property="og:description" content="Mr.Huの个人博客胡说(當然我在胡說），linux瞎折腾，python学习笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python list 函数踩坑小记">
-<meta name="twitter:description" content="最近发现的 python list 函数的小坑，记录备忘。python 版本为 2.7
-
-Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。这个有点类似与java中的数组。我们知道可以使用索引的方式输出 List 中的元素。（索引从 0 开始，也就是说，第一个元素的索引是0，第二个元素的索引是1，以此类推）
-
-比如：输出第一个元素即, 如下图：">
-<meta name="twitter:image" content="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/1278096121.png">
+<meta name="twitter:title" content="當然我在胡說">
+<meta name="twitter:description" content="Mr.Huの个人博客胡说(當然我在胡說），linux瞎折腾，python学习笔记">
   
     <link rel="alternative" href="/atom.xml" title="當然我在胡說" type="application/atom+xml">
   
@@ -92,86 +73,39 @@ Python内置的一种数据类型是列表：list。list是一种有序的集合
 </header>
 
     <div class="outer">
-      <section id="main"><article id="post-python-list" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/17/python-list/" class="article-date">
-  <time datetime="2016-07-17T05:18:13.000Z" itemprop="datePublished">2016-07-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/python/">python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      Python list 函数踩坑小记
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2016/12/04/python-redis/" class="archive-article-date">
+  <time datetime="2016-12-04T10:50:38.000Z" itemprop="datePublished">12月 4</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/12/04/python-redis/">Python操作 redis 示例</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近发现的 python list 函数的小坑，记录备忘。python 版本为 2.7</p>
-<blockquote>
-<p>Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。这个有点类似与java中的数组。<br>我们知道可以使用索引的方式输出 List 中的元素。（索引从 0 开始，也就是说，第一个元素的索引是0，第二个元素的索引是1，以此类推）</p>
-</blockquote>
-<p>比如：输出第一个元素即, 如下图：</p>
-<a id="more"></a>
-<p><img src="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/1278096121.png" alt="python_list01.png"></p>
-<p>还有另外一个特性，输出最后一个元素print L[-1] 如下图：<br><img src="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/4247212664.png" alt="python_list02.png"></p>
-<p>append 函数可以在List最后追加 List 末尾 如下图：<br><img src="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/2045334997.png" alt="python_list03.png"></p>
-<p>我们知道，还有个 insert() 方法，它接受两个参数，第一个参数是索引号，第二个参数是待添加的新元素：如下图，如果我们要添加一个元素到 List 开头，直接 L.insert(0,’Firest’)即可，因为第一个元素的索引号是 0 嘛。<br><img src="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/2211568145.png" alt="python_list04.png"></p>
-<p>前方高能！！</p>
-<p>那么，是否可以使用 -1 索引号 讲元素添加到末尾呢。答案是：不可以！！！ 如下图：<br><img src="http://7xi6fr.com1.z0.glb.clouddn.com/2015/09/671281614.png" alt="python_list05.png"></p>
-<p>使用 -1 作为索引，成功插入了元素，但是，但是 居然是不是最后一个元素，插入后是倒数第二个，什么鬼？！！</p>
-<p>看来如果只是想追加到最后，还是直接用 append() 函数好了。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://mrhu.tk/2016/07/17/python-list/" data-id="ciwaj3sxp0013oofyku3u4qdi" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://mrhu.tk/2016/07/17/python-list/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/07/17/install-appium-on-macos/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">
-        
-          MAC 环境下安装 Appium
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-  
 </article>
-
-
-  <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2016/07/17/python-list/" data-title="Python list 函数踩坑小记" data-url="http://mrhu.tk/2016/07/17/python-list/"></div>
-  </section>
+  
+  
+    </div></section>
+  
 </section>
       
       <aside id="sidebar">
