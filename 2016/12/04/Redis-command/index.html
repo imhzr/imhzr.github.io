@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Redis 常用命令总结 | 當然我在胡說</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Redis常用操作命令总结，方便随用随查。
+连接操作相关的命令1234567redis-cli #连接本地服务redis-cli -h host -p port -a yourpassword #远程连接quit  #关闭连接（connection）config get requirepass #验证是否设置了密码config set requirepass yourpassword #设置密码c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis 常用命令总结">
+<meta property="og:url" content="http://mrhu.tk/2016/12/04/Redis-command/index.html">
+<meta property="og:site_name" content="當然我在胡說">
+<meta property="og:description" content="Redis常用操作命令总结，方便随用随查。
+连接操作相关的命令1234567redis-cli #连接本地服务redis-cli -h host -p port -a yourpassword #远程连接quit  #关闭连接（connection）config get requirepass #验证是否设置了密码config set requirepass yourpassword #设置密码c">
+<meta property="og:updated_time" content="2016-12-04T09:29:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis 常用命令总结">
+<meta name="twitter:description" content="Redis常用操作命令总结，方便随用随查。
+连接操作相关的命令1234567redis-cli #连接本地服务redis-cli -h host -p port -a yourpassword #远程连接quit  #关闭连接（connection）config get requirepass #验证是否设置了密码config set requirepass yourpassword #设置密码c">
+  
+    <link rel="alternative" href="/atom.xml" title="當然我在胡說" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">當然我在胡說</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">其实我也不知道我要做什么，但是我觉得我要做点什么！</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首頁</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <!-- <a id="nav-search-btn" class="nav-icon" title="Search"></a> -->
+      </nav>
+      <!-- <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="mrhu.tk">
+        </form>
+      </div> -->
+    </div>
+  </div>
+</header>
+
+    <div class="outer">
+      <section id="main"><article id="post-Redis-command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/04/Redis-command/" class="article-date">
+  <time datetime="2016-12-04T09:24:03.000Z" itemprop="datePublished">2016-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/redis/">redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Redis 常用命令总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Redis常用操作命令总结，方便随用随查。</p>
+<h3 id="连接操作相关的命令"><a href="#连接操作相关的命令" class="headerlink" title="连接操作相关的命令"></a>连接操作相关的命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">redis-cli <span class="comment">#连接本地服务</span></span><br><span class="line">redis-cli -h host -p port <span class="_">-a</span> yourpassword <span class="comment">#远程连接</span></span><br><span class="line">quit  <span class="comment">#关闭连接（connection）</span></span><br><span class="line">config get requirepass <span class="comment">#验证是否设置了密码</span></span><br><span class="line">config <span class="built_in">set</span> requirepass yourpassword <span class="comment">#设置密码</span></span><br><span class="line">config <span class="built_in">set</span> requirepass “” <span class="comment">#清空密码</span></span><br><span class="line">auth yourpassword <span class="comment">#简单密码认证</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">save <span class="comment">#将数据同步保存到磁盘，在redis目录中创建dump.rdb备份文件</span></span><br><span class="line">config get dir <span class="comment">#获取redis目录，一般为：/var/lib/redis/</span></span><br><span class="line">bgsave <span class="comment">#将数据异步保存到磁盘</span></span><br><span class="line">lastsav <span class="comment">#返回上次成功将数据保存到磁盘的Unix时戳</span></span><br><span class="line">shundown <span class="comment">#将数据同步保存到磁盘，然后关闭服务</span></span><br></pre></td></tr></table></figure>
+<h3 id="服务控制"><a href="#服务控制" class="headerlink" title="服务控制"></a>服务控制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">info <span class="comment">#提供服务器的信息和统计</span></span><br><span class="line">monitor <span class="comment">#实时转储收到的请求</span></span><br><span class="line">slaveof <span class="comment">#改变复制策略设置</span></span><br><span class="line">config <span class="comment">#在运行时配置Redis服务器</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="value操作相关命令"><a href="#value操作相关命令" class="headerlink" title="value操作相关命令"></a>value操作相关命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">exists key <span class="comment">#确认一个key是否存在.若key存在返回1，不存在返回0.</span></span><br><span class="line">del key <span class="comment">#删除一个key</span></span><br><span class="line"><span class="built_in">type</span> key <span class="comment">#返回值的类型</span></span><br><span class="line">keys(pattern) <span class="comment">#返回满足给定pattern的所有key</span></span><br><span class="line">randomkey <span class="comment">#随机返回key空间的一个</span></span><br><span class="line">keyrename(oldname, newname) <span class="comment">#重命名key</span></span><br><span class="line">dbsize <span class="comment">#返回当前数据库中key的数目</span></span><br><span class="line">expire <span class="comment">#设定一个key的活动时间（s）</span></span><br><span class="line">ttl <span class="comment">#获得一个key的活动时间</span></span><br><span class="line">select(index) <span class="comment">#按索引查询</span></span><br><span class="line">move(key, dbindex) <span class="comment">#移动当前数据库中的key到dbindex数据库</span></span><br><span class="line">flushdb <span class="comment">#删除当前选择数据库中的所有key</span></span><br><span class="line">flushall <span class="comment">#删除所有数据库中的所有key</span></span><br></pre></td></tr></table></figure>
+<h3 id="String操作相关命令"><a href="#String操作相关命令" class="headerlink" title="String操作相关命令"></a>String操作相关命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span>(key, value) <span class="comment">#给数据库中名称为key的string赋予值value</span></span><br><span class="line">get(key) <span class="comment">#返回数据库中名称为key的string的value</span></span><br><span class="line">getset(key, value) <span class="comment">#给名称为key的string赋予上一次的value</span></span><br><span class="line">mget(key1, key2,…, key N) <span class="comment">#返回库中多个string的value</span></span><br><span class="line">setnx(key, value) <span class="comment">#添加string，名称为key，值为value</span></span><br><span class="line">setex(key, time, value) <span class="comment">#向库中添加string，设定过期时间time</span></span><br><span class="line">mset(key N, value N) <span class="comment">#批量设置多个string的值</span></span><br><span class="line">msetnx(key N, value N) <span class="comment">#如果所有名称为key i的string都不存在</span></span><br><span class="line">incr(key) <span class="comment">#名称为key的string增1操作</span></span><br><span class="line">incrby(key, <span class="built_in">integer</span>) <span class="comment">#名称为key的string增加integer</span></span><br><span class="line">decr(key) <span class="comment">#名称为key的string减1操作</span></span><br><span class="line">decrby(key, <span class="built_in">integer</span>) <span class="comment">#名称为key的string减少integer</span></span><br><span class="line">append(key, value) <span class="comment">#名称为key的string的值附加value</span></span><br><span class="line">substr(key, start, end) <span class="comment">#返回名称为key的string的value的子串</span></span><br></pre></td></tr></table></figure>
+<h3 id="List操作相关命令"><a href="#List操作相关命令" class="headerlink" title="List操作相关命令"></a>List操作相关命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">rpush(key, value) <span class="comment">#在名称为key的list尾添加一个值为value的元素</span></span><br><span class="line">lpush(key, value) <span class="comment">#在名称为key的list头添加一个值为value的 元素</span></span><br><span class="line">llen(key) <span class="comment">#返回名称为key的list的长度</span></span><br><span class="line">lrange(key, start, end) <span class="comment">#返回名称为key的list中start至end之间的元素</span></span><br><span class="line">ltrim(key, start, end) <span class="comment">#截取名称为key的list</span></span><br><span class="line">lindex(key, index) <span class="comment">#返回名称为key的list中index位置的元素</span></span><br><span class="line">lset(key, index, value) <span class="comment">#给名称为key的list中index位置的元素赋值</span></span><br><span class="line">lrem(key, count, value) <span class="comment">#删除count个key的list中值为value的元素</span></span><br><span class="line">lpop(key) <span class="comment">#返回并删除名称为key的list中的首元素</span></span><br><span class="line">rpop(key) <span class="comment">#返回并删除名称为key的list中的尾元素</span></span><br><span class="line">blpop(key1, key2,… key N, timeout) <span class="comment">#lpop命令的block版本。</span></span><br><span class="line">brpop(key1, key2,… key N, timeout) <span class="comment">#rpop的block版本。</span></span><br><span class="line">rpoplpush(srckey, dstkey) <span class="comment">#返回并删除名称为srckey的list的尾元素，并将该元素添加到名称为dstkey的list的头部</span></span><br></pre></td></tr></table></figure>
+<h3 id="Set操作相关命令"><a href="#Set操作相关命令" class="headerlink" title="Set操作相关命令"></a>Set操作相关命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sadd(key, member) <span class="comment">#向名称为key的set中添加元素member</span></span><br><span class="line">srem(key, member)  <span class="comment">#删除名称为key的set中的元素member</span></span><br><span class="line">spop(key) <span class="comment">#随机返回并删除名称为key的set中一个元素</span></span><br><span class="line">smove(srckey, dstkey, member) <span class="comment">#移到集合元素</span></span><br><span class="line">scard(key) <span class="comment">#返回名称为key的set的基数</span></span><br><span class="line">sismember(key, member) <span class="comment">#member是否是名称为key的set的元素</span></span><br><span class="line">sinter(key1, key2,…key N) <span class="comment">#求交集</span></span><br><span class="line">sinterstore(dstkey, (keys))  <span class="comment">#求交集并将交集保存到dstkey的集合</span></span><br><span class="line">sunion(key1, (keys)) <span class="comment">#求并集</span></span><br><span class="line">sunionstore(dstkey, (keys)) <span class="comment">#求并集并将并集保存到dstkey的集合</span></span><br><span class="line">sdiff(key1, (keys)) <span class="comment">#求差集</span></span><br><span class="line">sdiffstore(dstkey, (keys)) <span class="comment">#求差集并将差集保存到dstkey的集合</span></span><br><span class="line">smembers(key) <span class="comment">#返回名称为key的set的所有元素</span></span><br><span class="line">srandmember(key) <span class="comment">#随机返回名称为key的set的一个元素</span></span><br></pre></td></tr></table></figure>
+<h3 id="Hash操作相关命令"><a href="#Hash操作相关命令" class="headerlink" title="Hash操作相关命令"></a>Hash操作相关命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hset(key, field, value) <span class="comment">#向名称为key的hash中添加元素field</span></span><br><span class="line">hget(key, field) <span class="comment">#返回名称为key的hash中field对应的value</span></span><br><span class="line">hmget(key, (fields)) <span class="comment">#返回名称为key的hash中field i对应的value</span></span><br><span class="line">hmset(key, (fields)) <span class="comment">#向名称为key的hash中添加元素field</span></span><br><span class="line">hincrby(key, field, <span class="built_in">integer</span>) <span class="comment">#名称为key的hash中field的value增加integer</span></span><br><span class="line">hexists(key, field) <span class="comment">#名称为key的hash中是否存在键为field的域</span></span><br><span class="line">hdel(key, field) <span class="comment">#删除名称为key的hash中键为field的域</span></span><br><span class="line">hlen(key) <span class="comment">#返回名称为key的hash中元素个数</span></span><br><span class="line">hkeys(key) <span class="comment">#返回名称为key的hash中所有键</span></span><br><span class="line">hvals(key) <span class="comment">#返回名称为key的hash中所有键对应的value</span></span><br><span class="line">hgetall(key) <span class="comment">#返回名称为key的hash中所有的键（field）及其对应的value</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2016/12/04/Redis-command/" data-id="ciwag2w7r0000hvfyaxadznc3" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://mrhu.tk/2016/12/04/Redis-command/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/04/Redis-intro/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">Redis 安装使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/12/04/Redis-command/" data-title="Redis 常用命令总结" data-url="http://mrhu.tk/2016/12/04/Redis-command/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/瞎折腾/">瞎折腾</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Appium/" style="font-size: 10px;">Appium</a> <a href="/tags/HTMLTestRunner/" style="font-size: 10px;">HTMLTestRunner</a> <a href="/tags/KindleEar-GAE/" style="font-size: 10px;">KindleEar,GAE</a> <a href="/tags/RDBMS-NoSQL/" style="font-size: 10px;">RDBMS,NoSQL</a> <a href="/tags/linux-python-爬虫/" style="font-size: 10px;">linux,python,爬虫</a> <a href="/tags/linux-微信开发者工具/" style="font-size: 10px;">linux,微信开发者工具</a> <a href="/tags/mame-街机模拟器-拳皇/" style="font-size: 10px;">mame,街机模拟器,拳皇</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/ssh-keygen/" style="font-size: 10px;">ssh-keygen</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/winqq-fcitx-中文输入法/" style="font-size: 10px;">winqq,fcitx,中文输入法</a> <a href="/tags/中文输入法-linux-wiznote/" style="font-size: 10px;">中文输入法,linux,wiznote</a> <a href="/tags/网易云音乐-Skype-wechat-for-linux-爱壁纸/" style="font-size: 10px;">网易云音乐,Skype,wechat for linux,爱壁纸</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/04/Redis-command/">Redis 常用命令总结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/04/Redis-intro/">Redis 安装使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/">半步视频爬虫利用you-get批量下载优酷视频</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/23/微信开发者工具linux版/">微信开发者工具linux版</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/23/RDBMSvsNoSQL/">RDBMS vs NoSQL</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="https://www.fullstackpython.com/" target="_blank">FullStackPython</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Mr.Hu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首頁</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"mrhutk"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>
