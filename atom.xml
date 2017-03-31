@@ -170,13 +170,12 @@
     <link href="http://mrhu.tk/2016/09/23/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7linux%E7%89%88/"/>
     <id>http://mrhu.tk/2016/09/23/微信开发者工具linux版/</id>
     <published>2016-09-23T13:56:59.000Z</published>
-    <updated>2016-09-23T14:08:35.000Z</updated>
+    <updated>2017-03-31T14:59:07.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;虽然该工具基于NODE的但官网没有打包linux版本的客户端，是滴，就是这么尿性。今天在ruby-china找到网友分享的linux版的客户端，现分享于此。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;下载nwjs-ｓｄｋ及开发者工具package.nw
-&lt;/strong&gt;&lt;br&gt;链接如下百度网盘&lt;br&gt;链接: &lt;a href=&quot;http://pan.baidu.com/s/1jIFHOs2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://pan.baidu.com/s/1jIFHOs2&lt;/a&gt; 密码: d93s&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;下载nwjs-ｓｄｋ及开发者工具package.nw&lt;/strong&gt;&lt;br&gt;链接如下百度网盘&lt;br&gt;链接: &lt;a href=&quot;http://pan.baidu.com/s/1jIFHOs2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://pan.baidu.com/s/1jIFHOs2&lt;/a&gt; 密码: d93s&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;分别解压&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;tar -zxvf nwjs-sdk-v0.16.1-linux-x64 .tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tar -zxvf package.nw.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mv package.nw/* nwjs-sdk-v0.16.1-linux-x64/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd nwjs-sdk-v0.16.1-linux-x64/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./nw&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 </content>
     
