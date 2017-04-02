@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android 常用 adb 命令 | 當然我在胡說</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基础操作
+安装app12345adb install -r xxx.apk //覆盖安装，保留数据和缓存文件adb install -s xxx.apk //安装apk到sd卡adb install -f xxx.apk //安装apk到内部系统内存adb install -d xxx.apk //安装低版本Apkadb install -g xxx.apk //准许Apk manifest中的所">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 常用 adb 命令">
+<meta property="og:url" content="http://mrhu.tk/2017/04/02/adb-command/index.html">
+<meta property="og:site_name" content="當然我在胡說">
+<meta property="og:description" content="基础操作
+安装app12345adb install -r xxx.apk //覆盖安装，保留数据和缓存文件adb install -s xxx.apk //安装apk到sd卡adb install -f xxx.apk //安装apk到内部系统内存adb install -d xxx.apk //安装低版本Apkadb install -g xxx.apk //准许Apk manifest中的所">
+<meta property="og:updated_time" content="2017-04-02T04:37:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 常用 adb 命令">
+<meta name="twitter:description" content="基础操作
+安装app12345adb install -r xxx.apk //覆盖安装，保留数据和缓存文件adb install -s xxx.apk //安装apk到sd卡adb install -f xxx.apk //安装apk到内部系统内存adb install -d xxx.apk //安装低版本Apkadb install -g xxx.apk //准许Apk manifest中的所">
+  
+    <link rel="alternative" href="/atom.xml" title="當然我在胡說" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">當然我在胡說</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">其实我也不知道我要做什么，但是我觉得我要做点什么！</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首頁</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <!-- <a id="nav-search-btn" class="nav-icon" title="Search"></a> -->
+      </nav>
+      <!-- <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="mrhu.tk">
+        </form>
+      </div> -->
+    </div>
+  </div>
+</header>
+
+    <div class="outer">
+      <section id="main"><article id="post-adb-command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/02/adb-command/" class="article-date">
+  <time datetime="2017-04-02T04:32:31.000Z" itemprop="datePublished">2017-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件测试/">软件测试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android 常用 adb 命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h1><ul>
+<li>安装app<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">adb install -r xxx.apk //覆盖安装，保留数据和缓存文件</span><br><span class="line">adb install -s xxx.apk //安装apk到sd卡</span><br><span class="line">adb install -f xxx.apk //安装apk到内部系统内存</span><br><span class="line">adb install -d xxx.apk //安装低版本Apk</span><br><span class="line">adb install -g xxx.apk //准许Apk manifest中的所有权限</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>获取安装位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm get-install-location</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>卸载app</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb uninstall &lt;package&gt;</span><br><span class="line">adb uninstall -k &lt;package&gt; //卸载app但保留数据和缓存文件</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>重启手机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动adb服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb start-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关闭服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb kill-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入shell环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="设备信息查看"><a href="#设备信息查看" class="headerlink" title="设备信息查看"></a>设备信息查看</h1><ul>
+<li><p>查看所连接的设备以及设备所对应的序列号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看手机CPU架构(eg.ARMv7) 和内核个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell cat /proc/cpuinfo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看系统的详尽内存信息，包含内核情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb sehll cat /proc/meminfo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取手机磁盘空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell df</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取手机系统版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell getprop ro.build.verison.release</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取机器MAC地址：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell cat /sys/class/net/wlan0/address</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看WiFi密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell cat /data/misc/wifi/*.conf</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="pm-am-相关"><a href="#pm-am-相关" class="headerlink" title="pm/am 相关"></a>pm/am 相关</h1><ul>
+<li><p>清除应用的数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm clear &lt;package&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看APP路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm path &lt;package&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看所有已安装的应用的包名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm list packages -f</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看含有“Google”字段的应用的包名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm list packages google</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看第三方应用的包名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm list packages -3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动某个应用的某个activity</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell am start -n packagename/packagename.activityname</span><br><span class="line">如：adb shell am start -n com.company.appname/ .SplashActivity -es url http://www.baidu.com</span><br><span class="line">//-es表示需传递参数，其中url表示参数名，链接表示具体参数值</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拨打电话</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell am start -a android.intent.action.CALL -d tel:10086</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开网站</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell am start -a android.intent.action.VIEW -d http://www.google.com</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="进程-服务查看"><a href="#进程-服务查看" class="headerlink" title="进程/服务查看"></a>进程/服务查看</h1><ul>
+<li><p>查看进程信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell ps | grep XXX</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看指定进程状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell ps -x [pid]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>周期性地打印出进程运行队列、系统切换、CPU时间占比等情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell vmstat</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>各进程内存使用情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell procrank</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>杀死一个进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell kill [pid]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看后台services信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell service list</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="dumpsys系列"><a href="#dumpsys系列" class="headerlink" title="dumpsys系列"></a>dumpsys系列</h1><ul>
+<li><p>查看当前手机所支持的dump服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys -l</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看包信息 Package Information</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys package</span><br><span class="line">adb shell dumpsys package packages | grep &lt;package&gt;  //查看某个app资源路径</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看内存使用情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys meminfo | grep xxx</span><br><span class="line">adb shell dumpsys meminfo &lt;pid&gt; // 输出指定pid的内存使用情况</span><br><span class="line">adb shell dumpsys meminfo --package &lt;package&gt; // 输出指定包名内存使用情况</span><br><span class="line">adb shell top -m 6 //查看内存占用前6的app</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看栈顶Activity，可以用来获取包名,查看其它app的包名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys activity top</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看渲染耗时</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys gfxinfo &lt;package&gt; &gt; /sdcard/fps.txt</span><br><span class="line">取出文件：adb pull /sdcard/fps.txt /Users/admin/Downloads/1234.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看am的状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys activity</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Memory Use Over Time</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys procstats</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><ul>
+<li><p>移动文件/文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell mv path/file newpath/file</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell mkdir path</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell touch filename</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重命名文件/文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell rename path/filename newpath/newfilename</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看文件内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell cat file</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从手机复制文件到电脑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull /data/anr/traces.txt /Users/admin/Downloads/1234.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从电脑向手机发送文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb push foo.txt /sdcard/foo.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="log相关"><a href="#log相关" class="headerlink" title="log相关"></a>log相关</h1><ul>
+<li><p>查看日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb logcat | grep xxx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>日志输出到文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb logcat -d &gt; ~/Desktop/logcat.txt //保存到桌面，需要android.permission.READ_LOGS</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清除log缓存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb logcat -c</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
+<li><p>通过USB &amp; WIFI连接设备.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">adb devices   #List of devices attached</span><br><span class="line">adb tcpip 5555  #拔掉数据线通过 adb connect 的方式连接。 ip 为手机IP</span><br><span class="line"></span><br><span class="line"># 连接到指定的ip，通常配合wifi debug</span><br><span class="line">adb connect &lt;device-ip-address&gt;</span><br><span class="line">adb usb             #restarting ADB in USB mode.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>跑monkey测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -v -p &lt;package&gt; 500 // 跑500次</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>截屏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell /system/bin/screencap -p /sdcard/screenshot.png</span><br><span class="line">adb pull /sdcard/screenshot.png ./Dowload/screenshot.png（保存到电脑）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>屏幕录制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell screenrecord  --time-limit 30 /sdcard/demo.mp4</span><br><span class="line">adb pull /sdcard/demo.mp4 ./Downloads/</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2017/04/02/adb-command/" data-id="cj10b2uko000bthfyb7x9ubqg" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/">adb</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/02/linux-sys-command/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          linux 系統信息查看常用命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/04/python-redis/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">Python操作 redis 示例</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <!-- <div id="ds-thread" class="ds-thread" data-thread-key="2017/04/02/adb-command/" data-title="Android 常用 adb 命令" data-url="http://mrhu.tk/2017/04/02/adb-command/"></div> -->
+    <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript"
+var youyan_uuid = '2129553';
+src="http://v2.uyan.cc/code/uyan.js?uid=" + youyan_uuid></script>
+<!-- UY END -->
+  </section>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/瞎折腾/">瞎折腾</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Appium/" style="font-size: 10px;">Appium</a> <a href="/tags/GAE/" style="font-size: 10px;">GAE</a> <a href="/tags/HTMLTestRunner/" style="font-size: 10px;">HTMLTestRunner</a> <a href="/tags/KindleEar/" style="font-size: 10px;">KindleEar</a> <a href="/tags/NoSQL/" style="font-size: 10px;">NoSQL</a> <a href="/tags/RDBMS/" style="font-size: 10px;">RDBMS</a> <a href="/tags/Skype/" style="font-size: 10px;">Skype</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/alien/" style="font-size: 10px;">alien</a> <a href="/tags/deb/" style="font-size: 10px;">deb</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/grub2/" style="font-size: 10px;">grub2</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mame/" style="font-size: 10px;">mame</a> <a href="/tags/mobileEmulation/" style="font-size: 10px;">mobileEmulation</a> <a href="/tags/mysqldump/" style="font-size: 10px;">mysqldump</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/python/" style="font-size: 17.5px;">python</a> <a href="/tags/python2-6/" style="font-size: 10px;">python2.6</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/selenium/" style="font-size: 12.5px;">selenium</a> <a href="/tags/ssh-keygen/" style="font-size: 10px;">ssh-keygen</a> <a href="/tags/string/" style="font-size: 10px;">string</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/wechat-for-linux/" style="font-size: 10px;">wechat for linux</a> <a href="/tags/winqq-fcitx-中文输入法/" style="font-size: 10px;">winqq,fcitx,中文输入法</a> <a href="/tags/wiznote/" style="font-size: 10px;">wiznote</a> <a href="/tags/中文输入法/" style="font-size: 10px;">中文输入法</a> <a href="/tags/微信开发者工具/" style="font-size: 10px;">微信开发者工具</a> <a href="/tags/拳皇/" style="font-size: 10px;">拳皇</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/爱壁纸/" style="font-size: 10px;">爱壁纸</a> <a href="/tags/网易云音乐/" style="font-size: 10px;">网易云音乐</a> <a href="/tags/街机模拟器/" style="font-size: 10px;">街机模拟器</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/02/create-mysqldump-sql/">自动生成mysqldump备份脚本</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/02/linux-simple-skill/">Linux下日志查看删除</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/02/set-proxy-for-terminal/">让终端命令翻墙而去</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/02/python-string/">「轉」Python 字符串操作</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/02/grub-setting/">修改grub2 默認啓動項目</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="https://www.fullstackpython.com/" target="_blank">FullStackPython</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Mr.Hu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首頁</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

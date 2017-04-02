@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>「轉」Python 字符串操作 | 當然我在胡說</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Python 字符串操作（string替换、删除、截取、复制、连接、比较、查找、包含、大小写转换、分割等）原文链接：http://wangwei007.blog.51cto.com/68019/903426">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「轉」Python 字符串操作">
+<meta property="og:url" content="http://mrhu.tk/2017/04/02/python-string/index.html">
+<meta property="og:site_name" content="當然我在胡說">
+<meta property="og:description" content="Python 字符串操作（string替换、删除、截取、复制、连接、比较、查找、包含、大小写转换、分割等）原文链接：http://wangwei007.blog.51cto.com/68019/903426">
+<meta property="og:updated_time" content="2017-04-02T06:38:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「轉」Python 字符串操作">
+<meta name="twitter:description" content="Python 字符串操作（string替换、删除、截取、复制、连接、比较、查找、包含、大小写转换、分割等）原文链接：http://wangwei007.blog.51cto.com/68019/903426">
+  
+    <link rel="alternative" href="/atom.xml" title="當然我在胡說" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">當然我在胡說</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">其实我也不知道我要做什么，但是我觉得我要做点什么！</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首頁</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <!-- <a id="nav-search-btn" class="nav-icon" title="Search"></a> -->
+      </nav>
+      <!-- <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="mrhu.tk">
+        </form>
+      </div> -->
+    </div>
+  </div>
+</header>
+
+    <div class="outer">
+      <section id="main"><article id="post-python-string" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/02/python-string/" class="article-date">
+  <time datetime="2017-04-02T05:06:36.000Z" itemprop="datePublished">2017-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      「轉」Python 字符串操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Python 字符串操作（string替换、删除、截取、复制、连接、比较、查找、包含、大小写转换、分割等）<br>原文链接<a href="http://wangwei007.blog.51cto.com/68019/903426" target="_blank" rel="external">：http://wangwei007.blog.51cto.com/68019/903426</a></p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#去空格及特殊符号  </span></span><br><span class="line">s.strip() .lstrip() .rstrip(<span class="string">','</span>)   </span><br><span class="line"></span><br><span class="line"><span class="comment">#复制字符串  </span></span><br><span class="line"><span class="comment">#strcpy(sStr1,sStr)   </span></span><br><span class="line">sStr= <span class="string">'strcpy'</span>   </span><br><span class="line">sStr = sStr  </span><br><span class="line">sStr= <span class="string">'strcpy'</span>   </span><br><span class="line"><span class="keyword">print</span> sStr   </span><br><span class="line"></span><br><span class="line"><span class="comment">#连接字符串  </span></span><br><span class="line"><span class="comment">#strcat(sStr1,sStr)   </span></span><br><span class="line">sStr= <span class="string">'strcat'</span>   </span><br><span class="line">sStr = <span class="string">'append'</span>   </span><br><span class="line">sStr+= sStr   </span><br><span class="line"><span class="keyword">print</span> sStr  </span><br><span class="line"></span><br><span class="line"><span class="comment">#查找字符  </span></span><br><span class="line"><span class="comment">#strchr(sStr1,sStr)   </span></span><br><span class="line">sStr= <span class="string">'strchr'</span>   </span><br><span class="line">sStr = <span class="string">'s'</span>   </span><br><span class="line">nPos = sStr1.index(sStr)   </span><br><span class="line"><span class="keyword">print</span> nPos   </span><br><span class="line"></span><br><span class="line"><span class="comment">#比较字符串  </span></span><br><span class="line"><span class="comment">#strcmp(sStr1,sStr)   </span></span><br><span class="line">sStr= <span class="string">'strchr'</span>   </span><br><span class="line">sStr = <span class="string">'strch'</span>   </span><br><span class="line"><span class="keyword">print</span> cmp(sStr1,sStr)  </span><br><span class="line"></span><br><span class="line"><span class="comment">#扫描字符串是否包含指定的字符  </span></span><br><span class="line"><span class="comment">#strspn(sStr1,sStr)   </span></span><br><span class="line">sStr= <span class="string">'1345678'</span>   </span><br><span class="line">sStr = <span class="string">'456'</span>   </span><br><span class="line"><span class="comment">#sStrand chars both in sStrand sStr   </span></span><br><span class="line"><span class="keyword">print</span> len(sStrand sStr)  </span><br><span class="line"></span><br><span class="line"><span class="comment">#字符串长度  </span></span><br><span class="line"><span class="comment">#strlen(sStr1)   </span></span><br><span class="line">sStr= <span class="string">'strlen'</span>   </span><br><span class="line"><span class="keyword">print</span> len(sStr1)   </span><br><span class="line"></span><br><span class="line"><span class="comment">#将字符串中的大小写转换  </span></span><br><span class="line"><span class="comment">#strlwr(sStr1)   </span></span><br><span class="line">sStr= <span class="string">'JCstrlwr'</span>   </span><br><span class="line">sStr= sStr1.upper()   </span><br><span class="line"><span class="comment">#sStr= sStr1.lower()   </span></span><br><span class="line"><span class="keyword">print</span> sStr  </span><br><span class="line"></span><br><span class="line"><span class="comment">#追加指定长度的字符串  </span></span><br><span class="line"><span class="comment">#strncat(sStr1,sStr,n)   </span></span><br><span class="line">sStr= <span class="string">'1345'</span>   </span><br><span class="line">sStr = <span class="string">'abcdef'</span>   </span><br><span class="line">n = <span class="number">3</span></span><br><span class="line">sStr+= sStr[<span class="number">0</span>:n]   </span><br><span class="line"><span class="keyword">print</span> sStr  </span><br><span class="line"></span><br><span class="line"><span class="comment">#字符串指定长度比较  </span></span><br><span class="line"><span class="comment">#strncmp(sStr1,sStr,n)   </span></span><br><span class="line">sStr= <span class="string">'1345'</span>   </span><br><span class="line">sStr = <span class="string">'13bc'</span>   </span><br><span class="line">n = <span class="number">3</span></span><br><span class="line"><span class="keyword">print</span> cmp(sStr1[<span class="number">0</span>:n],sStr[<span class="number">0</span>:n])   </span><br><span class="line"></span><br><span class="line"><span class="comment">#复制指定长度的字符  </span></span><br><span class="line"><span class="comment">#strncpy(sStr1,sStr,n)   </span></span><br><span class="line">sStr= <span class="string">''</span>   </span><br><span class="line">sStr = <span class="string">'1345'</span>   </span><br><span class="line">n = <span class="number">3</span></span><br><span class="line">sStr= sStr[<span class="number">0</span>:n]   </span><br><span class="line"><span class="keyword">print</span> sStr  </span><br><span class="line"></span><br><span class="line"><span class="comment">#将字符串前n个字符替换为指定的字符  </span></span><br><span class="line"><span class="comment">#strnset(sStr1,ch,n)   </span></span><br><span class="line">sStr= <span class="string">'1345'</span>   </span><br><span class="line">ch = <span class="string">'r'</span>   </span><br><span class="line">n = <span class="number">3</span></span><br><span class="line">sStr= n * ch + sStr1[<span class="number">3</span>:]   </span><br><span class="line"><span class="keyword">print</span> sStr  </span><br><span class="line"></span><br><span class="line"><span class="comment">#扫描字符串  </span></span><br><span class="line"><span class="comment">#strpbrk(sStr1,sStr)   </span></span><br><span class="line">sStr= <span class="string">'cekjgdklab'</span>   </span><br><span class="line">sStr = <span class="string">'gka'</span>   </span><br><span class="line">nPos = <span class="number">-1</span></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> sStr1:   </span><br><span class="line">     <span class="keyword">if</span> c <span class="keyword">in</span> sStr:   </span><br><span class="line">         nPos = sStr1.index(c)   </span><br><span class="line">         <span class="keyword">break</span>   </span><br><span class="line"><span class="keyword">print</span> nPos   </span><br><span class="line"></span><br><span class="line"><span class="comment">#翻转字符串  </span></span><br><span class="line"><span class="comment">#strrev(sStr1)   </span></span><br><span class="line">sStr= <span class="string">'abcdefg'</span>   </span><br><span class="line">sStr= sStr1[::<span class="number">-1</span>]   </span><br><span class="line"><span class="keyword">print</span> sStr  </span><br><span class="line"></span><br><span class="line"><span class="comment">#查找字符串  </span></span><br><span class="line"><span class="comment">#strstr(sStr1,sStr)   </span></span><br><span class="line">sStr= <span class="string">'abcdefg'</span>   </span><br><span class="line">sStr = <span class="string">'cde'</span>   </span><br><span class="line"><span class="keyword">print</span> sStr1.find(sStr)   </span><br><span class="line"></span><br><span class="line"><span class="comment">#分割字符串  </span></span><br><span class="line"><span class="comment">#strtok(sStr1,sStr)   </span></span><br><span class="line">sStr= <span class="string">'ab,cde,fgh,ijk'</span>   </span><br><span class="line">sStr = <span class="string">','</span>   </span><br><span class="line">sStr= sStr1[sStr1.find(sStr) + <span class="number">1</span>:]   </span><br><span class="line"><span class="keyword">print</span> sStr  </span><br><span class="line"><span class="comment"># 或者   </span></span><br><span class="line">s = <span class="string">'ab,cde,fgh,ijk'</span>   </span><br><span class="line">print(s.split(<span class="string">','</span>))   </span><br><span class="line"></span><br><span class="line"><span class="comment">#连接字符串  </span></span><br><span class="line">delimiter = <span class="string">','</span>   </span><br><span class="line">mylist = [<span class="string">'Brazil'</span>, <span class="string">'Russia'</span>, <span class="string">'India'</span>, <span class="string">'China'</span>]   </span><br><span class="line"><span class="keyword">print</span> delimiter.join(mylist)   </span><br><span class="line"><span class="comment">#PHP 中 addslashes 的实现  </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">addslashes</span><span class="params">(s)</span>:</span>   </span><br><span class="line">     d = &#123;<span class="string">'"'</span>:<span class="string">'\\"'</span>, <span class="string">"'"</span>:<span class="string">"\\'"</span>, <span class="string">"\0"</span>:<span class="string">"\\\0"</span>, <span class="string">"\\"</span>:<span class="string">"\\\\"</span>&#125;   </span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(d.get(c, c) <span class="keyword">for</span> c <span class="keyword">in</span> s)   </span><br><span class="line">s = <span class="string">"John 'Johny' Doe (a.k.a. \"Super Joe\")\\\0"</span>   </span><br><span class="line"><span class="keyword">print</span> s   </span><br><span class="line"><span class="keyword">print</span> addslashes(s)   </span><br><span class="line"></span><br><span class="line"><span class="comment">#只显示字母与数字  </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">OnlyCharNum</span><span class="params">(s,oth=<span class="string">''</span>)</span>:</span>   </span><br><span class="line">     s = s.lower();   </span><br><span class="line">    fomart = <span class="string">'abcdefghijklmnopqrstuvwxyz013456789'</span>   </span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> s:   </span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> c <span class="keyword">in</span> fomart:   </span><br><span class="line">             s = s.replace(c,<span class="string">''</span>);   </span><br><span class="line">     <span class="keyword">return</span> s;   </span><br><span class="line">print(OnlyStr(<span class="string">"a000 aa-b"</span>))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2017/04/02/python-string/" data-id="cj10b2um7001uthfy5oh6soje" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/02/set-proxy-for-terminal/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          让终端命令翻墙而去
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/02/grub-setting/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">修改grub2 默認啓動項目</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <!-- <div id="ds-thread" class="ds-thread" data-thread-key="2017/04/02/python-string/" data-title="「轉」Python 字符串操作" data-url="http://mrhu.tk/2017/04/02/python-string/"></div> -->
+    <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript"
+var youyan_uuid = '2129553';
+src="http://v2.uyan.cc/code/uyan.js?uid=" + youyan_uuid></script>
+<!-- UY END -->
+  </section>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/瞎折腾/">瞎折腾</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Appium/" style="font-size: 10px;">Appium</a> <a href="/tags/GAE/" style="font-size: 10px;">GAE</a> <a href="/tags/HTMLTestRunner/" style="font-size: 10px;">HTMLTestRunner</a> <a href="/tags/KindleEar/" style="font-size: 10px;">KindleEar</a> <a href="/tags/NoSQL/" style="font-size: 10px;">NoSQL</a> <a href="/tags/RDBMS/" style="font-size: 10px;">RDBMS</a> <a href="/tags/Skype/" style="font-size: 10px;">Skype</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/alien/" style="font-size: 10px;">alien</a> <a href="/tags/deb/" style="font-size: 10px;">deb</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/grub2/" style="font-size: 10px;">grub2</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mame/" style="font-size: 10px;">mame</a> <a href="/tags/mobileEmulation/" style="font-size: 10px;">mobileEmulation</a> <a href="/tags/mysqldump/" style="font-size: 10px;">mysqldump</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/python/" style="font-size: 17.5px;">python</a> <a href="/tags/python2-6/" style="font-size: 10px;">python2.6</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/selenium/" style="font-size: 12.5px;">selenium</a> <a href="/tags/ssh-keygen/" style="font-size: 10px;">ssh-keygen</a> <a href="/tags/string/" style="font-size: 10px;">string</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/wechat-for-linux/" style="font-size: 10px;">wechat for linux</a> <a href="/tags/winqq-fcitx-中文输入法/" style="font-size: 10px;">winqq,fcitx,中文输入法</a> <a href="/tags/wiznote/" style="font-size: 10px;">wiznote</a> <a href="/tags/中文输入法/" style="font-size: 10px;">中文输入法</a> <a href="/tags/微信开发者工具/" style="font-size: 10px;">微信开发者工具</a> <a href="/tags/拳皇/" style="font-size: 10px;">拳皇</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/爱壁纸/" style="font-size: 10px;">爱壁纸</a> <a href="/tags/网易云音乐/" style="font-size: 10px;">网易云音乐</a> <a href="/tags/街机模拟器/" style="font-size: 10px;">街机模拟器</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/02/create-mysqldump-sql/">自动生成mysqldump备份脚本</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/02/linux-simple-skill/">Linux下日志查看删除</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/02/set-proxy-for-terminal/">让终端命令翻墙而去</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/02/python-string/">「轉」Python 字符串操作</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/02/grub-setting/">修改grub2 默認啓動項目</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="https://www.fullstackpython.com/" target="_blank">FullStackPython</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Mr.Hu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首頁</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

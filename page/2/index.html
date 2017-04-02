@@ -75,10 +75,179 @@
     <div class="outer">
       <section id="main">
   
-    <article id="post-depload-KindleEar-on-GAE" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-python-redis" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/07/17/depload-KindleEar-on-GAE/" class="article-date">
-  <time datetime="2016-07-17T05:49:36.000Z" itemprop="datePublished">2016-07-17</time>
+    <a href="/2016/12/04/python-redis/" class="article-date">
+  <time datetime="2016-12-04T10:50:38.000Z" itemprop="datePublished">2016-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/redis/">redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/04/python-redis/">Python操作 redis 示例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文主要介绍通过python对redis数据进行操作。</p>
+<h3 id="1-安装Python操作的redis库"><a href="#1-安装Python操作的redis库" class="headerlink" title="1.安装Python操作的redis库"></a>1.安装Python操作的redis库</h3><p><code>pip install redis</code><br>Redis的Python驱动源码地址是<a href="https://github.com/andymccurdy/redis-py">https://github.com/andymccurdy/redis-py</a><br>redis-py使用redis模块的StrictRedis 类对redis进行操作。大部分操作和redis官方提供的命令语法相同，但是有些命令的使用例外。</p>
+<ul>
+<li>redis-py 出于安全方面的考虑，没有引入SELECT命令</li>
+<li>redis-py 使用delete 代替 DEL 命令</li>
+<li>redis-py 使用config_get和config_set 代替CONFIG GET和CONFIG SET
+        
+          <p class="article-more-link">
+            <a href="/2016/12/04/python-redis/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2016/12/04/python-redis/" data-id="cj10b2uml002athfy3akd7aak" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Redis-command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/04/Redis-command/" class="article-date">
+  <time datetime="2016-12-04T09:24:03.000Z" itemprop="datePublished">2016-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/redis/">redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/04/Redis-command/">Redis 常用命令总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Redis常用操作命令总结，方便随用随查。</p>
+<h3 id="连接操作相关的命令"><a href="#连接操作相关的命令" class="headerlink" title="连接操作相关的命令"></a>连接操作相关的命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">redis-cli <span class="comment">#连接本地服务</span></span><br><span class="line">redis-cli -h host -p port <span class="_">-a</span> yourpassword <span class="comment">#远程连接</span></span><br><span class="line">quit  <span class="comment">#关闭连接（connection）</span></span><br><span class="line">config get requirepass <span class="comment">#验证是否设置了密码</span></span><br><span class="line">config <span class="built_in">set</span> requirepass yourpassword <span class="comment">#设置密码</span></span><br><span class="line">config <span class="built_in">set</span> requirepass “” <span class="comment">#清空密码</span></span><br><span class="line">auth yourpassword <span class="comment">#简单密码认证</span></span><br><span class="line">select index <span class="comment">#切换到指定的数据库，数据库索引号 index 用数字值指定，以 0 作为起始索引值</span></span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2016/12/04/Redis-command/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2016/12/04/Redis-command/" data-id="cj10b2ul5000tthfyaon6azcp" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Redis-intro" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/04/Redis-intro/" class="article-date">
+  <time datetime="2016-12-04T07:48:58.000Z" itemprop="datePublished">2016-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/redis/">redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/04/Redis-intro/">Redis 安装使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Redis-简介"><a href="#Redis-简介" class="headerlink" title="Redis 简介"></a>Redis 简介</h3><p>Redis是完全开源免费的,遵守BSD协议,是一个高性能的key-value数据库。<br>Redis与其他key-value缓存产品有以下三个特点:</p>
+<ul>
+<li>Redis支持数据的持久化,可以将内存中的数据保持在磁盘中,重启的时候可以再次加载进行使用。</li>
+<li>Redis不仅仅支持简单的key-value类型的数据,同时还提供list,set,zset,hash等数据结构的存储。</li>
+<li>Redis支持数据的备份,即master-slave模式的数据备份。</li>
+</ul>
+<h3 id="安装-Redis"><a href="#安装-Redis" class="headerlink" title="安装 Redis"></a>安装 Redis</h3><p><code>sudo dnf install redis</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[hzrong@bogon ~]$ redis- <span class="comment">#按一下tab键盘查看redis 相关操作命令</span></span><br><span class="line">redis-benchmark   redis-check-dump  redis-sentinel    redis-shutdown</span><br><span class="line">redis-check-aof   redis-cli         redis-server</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2016/12/04/Redis-intro/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2016/12/04/Redis-intro/" data-id="cj10b2ull0017thfyw2j9iany" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-半步视频爬虫利用you-get批量下载优酷视频" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/" class="article-date">
+  <time datetime="2016-09-23T14:10:55.000Z" itemprop="datePublished">2016-09-23</time>
 </a>
     
   <div class="article-category">
@@ -93,7 +262,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/17/depload-KindleEar-on-GAE/">部署自定义kindle推送 KindleEar 到 GAE</a>
+      <a class="article-title" href="/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/">半步视频爬虫利用you-get批量下载优酷视频</a>
     </h1>
   
 
@@ -101,26 +270,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>参考：<a href="http://kindlefere.com/post/19.html">http://kindlefere.com/post/19.html</a><br><a href="https://github.com/cdhigh/KindleEar">https://github.com/cdhigh/KindleEar</a></p>
-</blockquote>
-<p>自从入手kindle后，一直想好好利用。<br>在kindle 伴侣网站看到一篇关于部署自定义kindle推送的文章，于是决定自己折腾个，部署过程中踩的坑如下：<br>
+        <p>为何叫半步视频爬虫呢，最近在学习爬虫，爬完妹子图后想着爬一下优酷网的电视剧，结果半天没有解析到视频的真正下载地址，本来像借助硕鼠解析正式地址后来发现，硕鼠怂了居然不同优酷的解析了估计是怕被告吧。后来发现you-get这个神器，具体看<a href="https://you-get.org/">官网</a>介绍吧，于是只爬取了视频播放页面的url至于解析视频地址和下载就交给you-get吧。</p>
+<h4 id="you-get-安装"><a href="#you-get-安装" class="headerlink" title="you-get 安装"></a>you-get 安装</h4><p><code>sudo pip3 install you-get</code><br>
         
           <p class="article-more-link">
-            <a href="/2016/07/17/depload-KindleEar-on-GAE/#more">Read More</a>
+            <a href="/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/07/17/depload-KindleEar-on-GAE/" data-id="cj0y1bi7p000o5hpvs8t2vh7y" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/" data-id="cj10b2un7002vthfyy6j5h5ul" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KindleEar-GAE/">KindleEar,GAE</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
 
     </footer>
   </div>
@@ -130,10 +297,10 @@
 
 
   
-    <article id="post-wiznote中文输入" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-微信开发者工具linux版" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/07/17/wiznote中文输入/" class="article-date">
-  <time datetime="2016-07-17T05:40:03.000Z" itemprop="datePublished">2016-07-17</time>
+    <a href="/2016/09/23/微信开发者工具linux版/" class="article-date">
+  <time datetime="2016-09-23T13:56:59.000Z" itemprop="datePublished">2016-09-23</time>
 </a>
     
   <div class="article-category">
@@ -148,7 +315,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/17/wiznote中文输入/">解决wiznote linux 客户端中文输入的问题</a>
+      <a class="article-title" href="/2016/09/23/微信开发者工具linux版/">微信开发者工具linux版</a>
     </h1>
   
 
@@ -157,26 +324,210 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>参考：<a href="http://pkgs.org/fedora-23/fedora-updates-testing-x86_64/fcitx-qt5-devel-1.0.5-3.fc23.x86_64.rpm.html">http://pkgs.org/fedora-23/fedora-updates-testing-x86_64/fcitx-qt5-devel-1.0.5-3.fc23.x86_64.rpm.html</a></p>
+<p>虽然该工具基于NODE的但官网没有打包linux版本的客户端，是滴，就是这么尿性。今天在ruby-china找到网友分享的linux版的客户端，现分享于此。</p>
 </blockquote>
-<p>因为喜欢为知笔记的跨平台性，在fedora下选择了为知笔记，但是安装好为知笔记客户端后，返现居然输入不了中文。</p>
-<p><strong>原因：</strong>wiznote使用了qt5，而查看我的fcitx安装的是fcitx-qt4，必须安装fcitx-qt5模块<br>
+<p><strong>下载nwjs-ｓｄｋ及开发者工具package.nw</strong><br>链接如下百度网盘<br>链接: <a href="http://pan.baidu.com/s/1jIFHOs2" target="_blank" rel="external">http://pan.baidu.com/s/1jIFHOs2</a> 密码: d93s</p>
+<p><strong>分别解压</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nwjs-sdk-v0.16.1-linux-x64 .tar.gz</span><br><span class="line">tar -zxvf package.nw.tar.gz</span><br><span class="line">mv package.nw/* nwjs-sdk-v0.16.1-linux-x64/</span><br><span class="line">cd nwjs-sdk-v0.16.1-linux-x64/</span><br><span class="line">./nw</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2016/09/23/微信开发者工具linux版/" data-id="cj10b2un4002rthfy89pb0jn2" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信开发者工具/">微信开发者工具</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-RDBMSvsNoSQL" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/23/RDBMSvsNoSQL/" class="article-date">
+  <time datetime="2016-09-23T13:43:12.000Z" itemprop="datePublished">2016-09-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/DB/">DB</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/23/RDBMSvsNoSQL/">RDBMS vs NoSQL</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>最近在看mongodb的教程，看到RDBMS与NoSQL的笔记时，觉得挺详细的记录备忘。</p>
+</blockquote>
+<h2 id="RDBMS-vs-NoSQL"><a href="#RDBMS-vs-NoSQL" class="headerlink" title="RDBMS vs NoSQL"></a>RDBMS vs NoSQL</h2><hr>
+<h3 id="RDBMS"><a href="#RDBMS" class="headerlink" title="RDBMS"></a>RDBMS</h3><ul>
+<li>高度组织化结构化数据</li>
+<li>结构化查询语言（SQL） (SQL)</li>
+<li>数据和关系都存储在单独的表中。</li>
+<li>数据操纵语言，数据定义语言</li>
+<li>严格的一致性</li>
+<li>基础事务</li>
+</ul>
+<h3 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h3><ul>
+<li>代表着不仅仅是SQL</li>
+<li>没有声明性查询语言</li>
+<li>没有预定义的模式</li>
+<li>键-值对存储，列存储，文档存储，图形数据库</li>
+<li>最终一致性，而非ACID属性</li>
+<li>非结构化和不可预知的数据</li>
+<li>CAP定理</li>
+<li>高性能，高可用性和可伸缩性</li>
+</ul>
+<hr>
+<h3 id="NoSQL的优点-缺点"><a href="#NoSQL的优点-缺点" class="headerlink" title="NoSQL的优点/缺点"></a>NoSQL的优点/缺点</h3><h5 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h5><ul>
+<li>高可扩展性</li>
+<li>分布式计算</li>
+<li>低成本</li>
+<li>架构的灵活性，半结构化数据</li>
+<li>没有复杂的关系</li>
+</ul>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点:"></a>缺点:</h5><ul>
+<li>没有标准化</li>
+<li>有限的查询功能（到目前为止）</li>
+<li>最终一致是不直观的程序</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2016/09/23/RDBMSvsNoSQL/" data-id="cj10b2ul1000othfy4gqsjoga" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RDBMS/">RDBMS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-ssh-keygen命令详解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/23/ssh-keygen命令详解/" class="article-date">
+  <time datetime="2016-09-23T13:34:46.000Z" itemprop="datePublished">2016-09-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/23/ssh-keygen命令详解/">ssh-keygen命令详解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br><span class="line">-b：指定密钥长度；</span><br><span class="line"> -e：读取openssh的私钥或者公钥文件； </span><br><span class="line">-C：添加注释； -f：指定用来保存密钥的文件名；</span><br><span class="line"> -i：读取未加密的ssh-v2兼容的私钥/公钥文件，然后在标准输出设备上显示openssh兼容的私钥/公钥；</span><br><span class="line"> -l：显示公钥文件的指纹数据；</span><br><span class="line"> -N：提供一个新密语；</span><br><span class="line"> -P：提供（旧）密语；</span><br><span class="line"> -q：静默模式； </span><br><span class="line">-t：指定要创建的密钥类型。</span><br></pre></td></tr></table></figure>
+<p><strong>示例：
+</strong><br><code>ssh-keygen -t rsa -b 4096 -C &quot;imhzr@foxmail.com&quot;</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2016/09/23/ssh-keygen命令详解/" data-id="cj10b2umf0022thfyxddj6l9n" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh-keygen/">ssh-keygen</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-linux-mame-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/30/linux-mame-install/" class="article-date">
+  <time datetime="2016-07-30T03:52:26.000Z" itemprop="datePublished">2016-07-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/瞎折腾/">瞎折腾</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/30/linux-mame-install/">Linux下安装mame街机模拟器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>既然要把Linux当做主力机，基本的娱乐肯定是比不可少的嘛。虽然有steame但我更喜欢玩一些街机小游戏，满满的童年回忆啊。鼎鼎大名的街机模拟器mame有linux版。今天正好得空赶紧安装起来玩一把拳皇，哈哈。</p>
+</blockquote>
+<h4 id="1-安裝-mame-模擬器"><a href="#1-安裝-mame-模擬器" class="headerlink" title="1.安裝 mame 模擬器"></a>1.安裝 mame 模擬器</h4><p><code>sudo rpm -Uvh rpmfusion-nonfree-release-23.noarch.rpm</code> （<a href="http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-23.noarch.rpm">下載地址</a>）<br><code>sudo dnf install libspotify-devel</code><br><code>sudo dnf install mame-0.171-1.fc23.x86_64.rpm</code>  (<a href="https://pkgs.org/fedora-23/rpmfusion-nonfree-x86_64/mame-0.171-1.fc23.x86_64.rpm.html">下載地址</a>)<br>
         
           <p class="article-more-link">
-            <a href="/2016/07/17/wiznote中文输入/#more">Read More</a>
+            <a href="/2016/07/30/linux-mame-install/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/07/17/wiznote中文输入/" data-id="cj0y1bi8n001m5hpv7643kkyv" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2016/07/30/linux-mame-install/" data-id="cj10b2umo002ethfyz8t6qif3" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/中文输入法-linux-wiznote/">中文输入法,linux,wiznote</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mame/">mame</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/拳皇/">拳皇</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/街机模拟器/">街机模拟器</a></li></ul>
 
     </footer>
   </div>
@@ -186,14 +537,14 @@
 
 
   
-    <article id="post-Python-selenium-unittest-HTMLTestRunner" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-fedora23-install-commonly-used-software" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/07/17/Python-selenium-unittest-HTMLTestRunner/" class="article-date">
-  <time datetime="2016-07-17T05:27:09.000Z" itemprop="datePublished">2016-07-17</time>
+    <a href="/2016/07/30/fedora23-install-commonly-used-software/" class="article-date">
+  <time datetime="2016-07-30T03:37:20.000Z" itemprop="datePublished">2016-07-30</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/软件测试/">软件测试</a>
+    <a class="article-category-link" href="/categories/linux/">linux</a>
   </div>
 
   </div>
@@ -204,7 +555,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/17/Python-selenium-unittest-HTMLTestRunner/">Python selenium unittest 测试实例</a>
+      <a class="article-title" href="/2016/07/30/fedora23-install-commonly-used-software/">Fedora23 常用软件安装</a>
     </h1>
   
 
@@ -212,128 +563,78 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Python selenium 配合 unittest 再加上 HTMLTestRunner 可以很好的输出自动化测试的报告！<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">__author__ = <span class="string">'hzrong'</span></span><br><span class="line"><span class="comment">#ecoding=utf-8</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> unittest,time</span><br><span class="line"><span class="keyword">import</span>  HTMLTestRunner</span><br><span class="line"><span class="keyword">from</span> selenium.common.exceptions <span class="keyword">import</span> NoSuchElementException</span><br><span class="line"><span class="keyword">from</span> selenium.common.exceptions <span class="keyword">import</span> NoAlertPresentException</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">pm_hongbao</span><span class="params">(unittest.TestCase)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.driver = webdriver.Chrome(<span class="string">'/home/hzrong/software/chromedriver'</span>)</span><br><span class="line">        self.driver.implicitly_wait(<span class="number">30</span>)</span><br><span class="line">        self.pm_url = <span class="string">"http://xxxxx/login.html"</span></span><br><span class="line">        self.driver.maximize_window()</span><br><span class="line">        <span class="comment">#脚本运行时，错误信息被打印到该列表</span></span><br><span class="line">        self.verificationErrors = []</span><br><span class="line">        self.accept_next_alert = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_login</span><span class="params">(self)</span>:</span></span><br><span class="line">        usrname=<span class="string">'admin'</span></span><br><span class="line">        password=<span class="string">'xxxxxxx'</span></span><br><span class="line">        dr = self.driver</span><br><span class="line">        dr.get(self.pm_url)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            dr.find_element_by_id(<span class="string">'txtCode'</span>).send_keys(usrname)</span><br><span class="line">            dr.find_element_by_xpath(<span class="string">'//*[@id="txtPassword"]'</span>).send_keys(password)</span><br><span class="line">            dr.find_element_by_xpath(<span class="string">'//*[@id="login"]/button'</span>).click()</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            dr.get_screenshot_as_file(<span class="string">'test.png'</span>)</span><br><span class="line">        time.sleep(<span class="number">3</span>)</span><br><span class="line">     <span class="comment">#该函数查找页面元素是否存在</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_element_present</span><span class="params">(self, how, what)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>: self.driver.find_element(by=how, value=what)</span><br><span class="line">        <span class="keyword">except</span> NoSuchElementException, e: <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">     <span class="comment">#对弹窗异常的处理</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_alert_present</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>: self.driver.switch_to_alert()</span><br><span class="line">        <span class="keyword">except</span> NoAlertPresentException, e: <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">    <span class="comment">#关闭警告和对得到文本框的处理</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_alert_and_get_its_text</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            alert = self.driver.switch_to_alert()</span><br><span class="line">            alert_text = alert.text</span><br><span class="line">            <span class="keyword">if</span> self.accept_next_alert:</span><br><span class="line">                alert.accept()</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                alert.dismiss()</span><br><span class="line">            <span class="keyword">return</span> alert_text</span><br><span class="line">        <span class="keyword">finally</span>: self.accept_next_alert = <span class="keyword">True</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tearDown</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.driver.quit()</span><br><span class="line">        self.assertEqual([], self.verificationErrors)</span><br><span class="line"></span><br><span class="line"><span class="comment">#进行测试</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="comment">#定义测试集</span></span><br><span class="line">    suite=unittest.TestSuite()</span><br><span class="line">    suite.addTest(pm_hongbao(<span class="string">"test_login"</span>))</span><br><span class="line">    <span class="comment">#定义报告存放路径</span></span><br><span class="line">    filename=<span class="string">'./result.html'</span></span><br><span class="line">    fp = file(filename,<span class="string">'wb'</span>)</span><br><span class="line">    runner = HTMLTestRunner.HTMLTestRunner(stream=fp,title=<span class="string">'Report_title'</span>,description=<span class="string">'Report_description'</span>)</span><br><span class="line">    <span class="comment">#自动进行测试</span></span><br><span class="line">    runner.run(suite)</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://mrhu.tk/2016/07/17/Python-selenium-unittest-HTMLTestRunner/" data-id="cj0y1bi7100005hpvgiwrpb7s" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTMLTestRunner/">HTMLTestRunner</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/selenium/">selenium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unittest/">unittest</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-install-appium-on-macos" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/17/install-appium-on-macos/" class="article-date">
-  <time datetime="2016-07-17T05:23:30.000Z" itemprop="datePublished">2016-07-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/软件测试/">软件测试</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/17/install-appium-on-macos/">MAC 环境下安装 Appium</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="1-install-brew"><a href="#1-install-brew" class="headerlink" title="1.install brew"></a>1.install brew</h5><p><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></p>
-<h5 id="2-install-git"><a href="#2-install-git" class="headerlink" title="2.install git"></a>2.install git</h5><p><code>brew install git</code><br>
-        
-          <p class="article-more-link">
-            <a href="/2016/07/17/install-appium-on-macos/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://mrhu.tk/2016/07/17/install-appium-on-macos/" data-id="cj0y1bi7y000y5hpvjhnrv5iv" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Appium/">Appium</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python-list" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/17/python-list/" class="article-date">
-  <time datetime="2016-07-17T05:18:13.000Z" itemprop="datePublished">2016-07-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/python/">python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/17/python-list/">Python list 函数踩坑小记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近发现的 python list 函数的小坑，记录备忘。python 版本为 2.7</p>
+        <h3 id="1-安装网易云音乐"><a href="#1-安装网易云音乐" class="headerlink" title="1.安装网易云音乐"></a>1.安装网易云音乐</h3><p>FZUG.repo，确保里面有开启[fzug-testing]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[fzug-testing]</span><br><span class="line">name=FZUG fc$releasever - Testing</span><br><span class="line">baseurl=https://repo.fdzh.org/FZUG/testing/$releasever/$basearch/</span><br><span class="line">skip_if_unavailable=True</span><br><span class="line">metadata_expire=1d</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure></p>
+<p>然后 <code>sudo dnf install netease-cloud-music</code>  OK!</p>
 <blockquote>
-<p>Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。这个有点类似与java中的数组。<br>我们知道可以使用索引的方式输出 List 中的元素。（索引从 0 开始，也就是说，第一个元素的索引是0，第二个元素的索引是1，以此类推）</p>
-</blockquote>
-<p>比如：输出第一个元素即, 如下图：</p>
+<p>参考：<a href="https://github.com/FZUG/repo/issues/111">https://github.com/FZUG/repo/issues/111</a><br>
         
           <p class="article-more-link">
-            <a href="/2016/07/17/python-list/#more">Read More</a>
+            <a href="/2016/07/30/fedora23-install-commonly-used-software/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/07/17/python-list/" data-id="cj0y1bi8e001e5hpvyp2ulft8" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2016/07/30/fedora23-install-commonly-used-software/" data-id="cj10b2umr002ithfyz66qq5my" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Skype/">Skype</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wechat-for-linux/">wechat for linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爱壁纸/">爱壁纸</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网易云音乐/">网易云音乐</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-wineqq-fcitx" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/30/wineqq-fcitx/" class="article-date">
+  <time datetime="2016-07-30T03:24:59.000Z" itemprop="datePublished">2016-07-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/30/wineqq-fcitx/">wineqq fcitx 輸入法無法輸入中文</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>工作需要没办法必须安装个QQ，试了很多版本最后决定还是选择winqq,安装过程十分简单，由于我用的是fedora添加完FZUG.repo后，直接<code>sudo dnf install wine-qqintl</code>就好,但是安装完winqq 后fcitx一直没有办法输入中文</p>
+</blockquote>
+<p>解決辦法：<br>wineqq的运行脚本是/usr/bin/wine-qqintl<br>修改脚本，在最开始加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br><span class="line">export GTK_IM_MODULE=&quot;fcitx&quot;</span><br><span class="line">export QT_IM_MODULE=&quot;fcitx&quot;</span><br></pre></td></tr></table></figure></p>
+<p>保存，重新啓動 OK!! </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2016/07/30/wineqq-fcitx/" data-id="cj10b2umv002mthfye8vq97ut" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/winqq-fcitx-中文输入法/">winqq,fcitx,中文输入法</a></li></ul>
 
     </footer>
   </div>
@@ -345,7 +646,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -356,7 +657,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/瞎折腾/">瞎折腾</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/瞎折腾/">瞎折腾</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -365,7 +666,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Appium/" style="font-size: 10px;">Appium</a> <a href="/tags/HTMLTestRunner/" style="font-size: 10px;">HTMLTestRunner</a> <a href="/tags/KindleEar-GAE/" style="font-size: 10px;">KindleEar,GAE</a> <a href="/tags/RDBMS-NoSQL/" style="font-size: 10px;">RDBMS,NoSQL</a> <a href="/tags/linux-python-爬虫/" style="font-size: 10px;">linux,python,爬虫</a> <a href="/tags/linux-微信开发者工具/" style="font-size: 10px;">linux,微信开发者工具</a> <a href="/tags/mame-街机模拟器-拳皇/" style="font-size: 10px;">mame,街机模拟器,拳皇</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/redis-python/" style="font-size: 10px;">redis,python</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/ssh-keygen/" style="font-size: 10px;">ssh-keygen</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/winqq-fcitx-中文输入法/" style="font-size: 10px;">winqq,fcitx,中文输入法</a> <a href="/tags/中文输入法-linux-wiznote/" style="font-size: 10px;">中文输入法,linux,wiznote</a> <a href="/tags/网易云音乐-Skype-wechat-for-linux-爱壁纸/" style="font-size: 10px;">网易云音乐,Skype,wechat for linux,爱壁纸</a>
+      <a href="/tags/Appium/" style="font-size: 10px;">Appium</a> <a href="/tags/GAE/" style="font-size: 10px;">GAE</a> <a href="/tags/HTMLTestRunner/" style="font-size: 10px;">HTMLTestRunner</a> <a href="/tags/KindleEar/" style="font-size: 10px;">KindleEar</a> <a href="/tags/NoSQL/" style="font-size: 10px;">NoSQL</a> <a href="/tags/RDBMS/" style="font-size: 10px;">RDBMS</a> <a href="/tags/Skype/" style="font-size: 10px;">Skype</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/alien/" style="font-size: 10px;">alien</a> <a href="/tags/deb/" style="font-size: 10px;">deb</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/grub2/" style="font-size: 10px;">grub2</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mame/" style="font-size: 10px;">mame</a> <a href="/tags/mobileEmulation/" style="font-size: 10px;">mobileEmulation</a> <a href="/tags/mysqldump/" style="font-size: 10px;">mysqldump</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/python/" style="font-size: 17.5px;">python</a> <a href="/tags/python2-6/" style="font-size: 10px;">python2.6</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/selenium/" style="font-size: 12.5px;">selenium</a> <a href="/tags/ssh-keygen/" style="font-size: 10px;">ssh-keygen</a> <a href="/tags/string/" style="font-size: 10px;">string</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/wechat-for-linux/" style="font-size: 10px;">wechat for linux</a> <a href="/tags/winqq-fcitx-中文输入法/" style="font-size: 10px;">winqq,fcitx,中文输入法</a> <a href="/tags/wiznote/" style="font-size: 10px;">wiznote</a> <a href="/tags/中文输入法/" style="font-size: 10px;">中文输入法</a> <a href="/tags/微信开发者工具/" style="font-size: 10px;">微信开发者工具</a> <a href="/tags/拳皇/" style="font-size: 10px;">拳皇</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/爱壁纸/" style="font-size: 10px;">爱壁纸</a> <a href="/tags/网易云音乐/" style="font-size: 10px;">网易云音乐</a> <a href="/tags/街机模拟器/" style="font-size: 10px;">街机模拟器</a>
     </div>
   </div>
 
@@ -374,7 +675,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
@@ -386,23 +687,23 @@
       <ul>
         
           <li>
-            <a href="/2016/12/04/python-redis/">Python操作 redis 示例</a>
+            <a href="/2017/04/02/create-mysqldump-sql/">自动生成mysqldump备份脚本</a>
           </li>
         
           <li>
-            <a href="/2016/12/04/Redis-command/">Redis 常用命令总结</a>
+            <a href="/2017/04/02/linux-simple-skill/">Linux下日志查看删除</a>
           </li>
         
           <li>
-            <a href="/2016/12/04/Redis-intro/">Redis 安装使用</a>
+            <a href="/2017/04/02/set-proxy-for-terminal/">让终端命令翻墙而去</a>
           </li>
         
           <li>
-            <a href="/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/">半步视频爬虫利用you-get批量下载优酷视频</a>
+            <a href="/2017/04/02/python-string/">「轉」Python 字符串操作</a>
           </li>
         
           <li>
-            <a href="/2016/09/23/微信开发者工具linux版/">微信开发者工具linux版</a>
+            <a href="/2017/04/02/grub-setting/">修改grub2 默認啓動項目</a>
           </li>
         
       </ul>

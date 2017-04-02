@@ -75,232 +75,10 @@
     <div class="outer">
       <section id="main">
   
-    <article id="post-python-redis" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-create-mysqldump-sql" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/12/04/python-redis/" class="article-date">
-  <time datetime="2016-12-04T10:50:38.000Z" itemprop="datePublished">2016-12-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/redis/">redis</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/04/python-redis/">Python操作 redis 示例</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文主要介绍通过python对redis数据进行操作。</p>
-<h3 id="1-安装Python操作的redis库"><a href="#1-安装Python操作的redis库" class="headerlink" title="1.安装Python操作的redis库"></a>1.安装Python操作的redis库</h3><p><code>pip install redis</code><br>Redis的Python驱动源码地址是<a href="https://github.com/andymccurdy/redis-py">https://github.com/andymccurdy/redis-py</a><br>redis-py使用redis模块的StrictRedis 类对redis进行操作。大部分操作和redis官方提供的命令语法相同，但是有些命令的使用例外。</p>
-<ul>
-<li>redis-py 出于安全方面的考虑，没有引入SELECT命令</li>
-<li>redis-py 使用delete 代替 DEL 命令</li>
-<li>redis-py 使用config_get和config_set 代替CONFIG GET和CONFIG SET
-        
-          <p class="article-more-link">
-            <a href="/2016/12/04/python-redis/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://mrhu.tk/2016/12/04/python-redis/" data-id="cj0y1bi8700165hpv4nld78w0" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis-python/">redis,python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Redis-command" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/04/Redis-command/" class="article-date">
-  <time datetime="2016-12-04T09:24:03.000Z" itemprop="datePublished">2016-12-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/redis/">redis</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/04/Redis-command/">Redis 常用命令总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Redis常用操作命令总结，方便随用随查。</p>
-<h3 id="连接操作相关的命令"><a href="#连接操作相关的命令" class="headerlink" title="连接操作相关的命令"></a>连接操作相关的命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">redis-cli <span class="comment">#连接本地服务</span></span><br><span class="line">redis-cli -h host -p port <span class="_">-a</span> yourpassword <span class="comment">#远程连接</span></span><br><span class="line">quit  <span class="comment">#关闭连接（connection）</span></span><br><span class="line">config get requirepass <span class="comment">#验证是否设置了密码</span></span><br><span class="line">config <span class="built_in">set</span> requirepass yourpassword <span class="comment">#设置密码</span></span><br><span class="line">config <span class="built_in">set</span> requirepass “” <span class="comment">#清空密码</span></span><br><span class="line">auth yourpassword <span class="comment">#简单密码认证</span></span><br><span class="line">select index <span class="comment">#切换到指定的数据库，数据库索引号 index 用数字值指定，以 0 作为起始索引值</span></span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2016/12/04/Redis-command/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://mrhu.tk/2016/12/04/Redis-command/" data-id="cj0y1bi7i000g5hpvwijb1a0b" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Redis-intro" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/04/Redis-intro/" class="article-date">
-  <time datetime="2016-12-04T07:48:58.000Z" itemprop="datePublished">2016-12-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/redis/">redis</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/04/Redis-intro/">Redis 安装使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Redis-简介"><a href="#Redis-简介" class="headerlink" title="Redis 简介"></a>Redis 简介</h3><p>Redis是完全开源免费的,遵守BSD协议,是一个高性能的key-value数据库。<br>Redis与其他key-value缓存产品有以下三个特点:</p>
-<ul>
-<li>Redis支持数据的持久化,可以将内存中的数据保持在磁盘中,重启的时候可以再次加载进行使用。</li>
-<li>Redis不仅仅支持简单的key-value类型的数据,同时还提供list,set,zset,hash等数据结构的存储。</li>
-<li>Redis支持数据的备份,即master-slave模式的数据备份。</li>
-</ul>
-<h3 id="安装-Redis"><a href="#安装-Redis" class="headerlink" title="安装 Redis"></a>安装 Redis</h3><p><code>sudo dnf install redis</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[hzrong@bogon ~]$ redis- <span class="comment">#按一下tab键盘查看redis 相关操作命令</span></span><br><span class="line">redis-benchmark   redis-check-dump  redis-sentinel    redis-shutdown</span><br><span class="line">redis-check-aof   redis-cli         redis-server</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2016/12/04/Redis-intro/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://mrhu.tk/2016/12/04/Redis-intro/" data-id="cj0y1bi7l000l5hpvrk78ol31" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-半步视频爬虫利用you-get批量下载优酷视频" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/" class="article-date">
-  <time datetime="2016-09-23T14:10:55.000Z" itemprop="datePublished">2016-09-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/瞎折腾/">瞎折腾</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/">半步视频爬虫利用you-get批量下载优酷视频</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>为何叫半步视频爬虫呢，最近在学习爬虫，爬完妹子图后想着爬一下优酷网的电视剧，结果半天没有解析到视频的真正下载地址，本来像借助硕鼠解析正式地址后来发现，硕鼠怂了居然不同优酷的解析了估计是怕被告吧。后来发现you-get这个神器，具体看<a href="https://you-get.org/">官网</a>介绍吧，于是只爬取了视频播放页面的url至于解析视频地址和下载就交给you-get吧。</p>
-<h4 id="you-get-安装"><a href="#you-get-安装" class="headerlink" title="you-get 安装"></a>you-get 安装</h4><p><code>sudo pip3 install you-get</code><br>
-        
-          <p class="article-more-link">
-            <a href="/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://mrhu.tk/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/" data-id="cj0y1bi8p001q5hpvinz7l06g" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-python-爬虫/">linux,python,爬虫</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-微信开发者工具linux版" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/23/微信开发者工具linux版/" class="article-date">
-  <time datetime="2016-09-23T13:56:59.000Z" itemprop="datePublished">2016-09-23</time>
+    <a href="/2017/04/02/create-mysqldump-sql/" class="article-date">
+  <time datetime="2017-04-02T05:17:41.000Z" itemprop="datePublished">2017-04-02</time>
 </a>
     
   <div class="article-category">
@@ -315,7 +93,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/23/微信开发者工具linux版/">微信开发者工具linux版</a>
+      <a class="article-title" href="/2017/04/02/create-mysqldump-sql/">自动生成mysqldump备份脚本</a>
     </h1>
   
 
@@ -323,211 +101,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>虽然该工具基于NODE的但官网没有打包linux版本的客户端，是滴，就是这么尿性。今天在ruby-china找到网友分享的linux版的客户端，现分享于此。</p>
-</blockquote>
-<p><strong>下载nwjs-ｓｄｋ及开发者工具package.nw</strong><br>链接如下百度网盘<br>链接: <a href="http://pan.baidu.com/s/1jIFHOs2" target="_blank" rel="external">http://pan.baidu.com/s/1jIFHOs2</a> 密码: d93s</p>
-<p><strong>分别解压</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nwjs-sdk-v0.16.1-linux-x64 .tar.gz</span><br><span class="line">tar -zxvf package.nw.tar.gz</span><br><span class="line">mv package.nw/* nwjs-sdk-v0.16.1-linux-x64/</span><br><span class="line">cd nwjs-sdk-v0.16.1-linux-x64/</span><br><span class="line">./nw</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://mrhu.tk/2016/09/23/微信开发者工具linux版/" data-id="cj0y1bi8t001u5hpvi1yme16s" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-微信开发者工具/">linux,微信开发者工具</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-RDBMSvsNoSQL" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/23/RDBMSvsNoSQL/" class="article-date">
-  <time datetime="2016-09-23T13:43:12.000Z" itemprop="datePublished">2016-09-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/DB/">DB</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/23/RDBMSvsNoSQL/">RDBMS vs NoSQL</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>最近在看mongodb的教程，看到RDBMS与NoSQL的笔记时，觉得挺详细的记录备忘。</p>
-</blockquote>
-<h2 id="RDBMS-vs-NoSQL"><a href="#RDBMS-vs-NoSQL" class="headerlink" title="RDBMS vs NoSQL"></a>RDBMS vs NoSQL</h2><hr>
-<h3 id="RDBMS"><a href="#RDBMS" class="headerlink" title="RDBMS"></a>RDBMS</h3><ul>
-<li>高度组织化结构化数据 </li>
-<li>结构化查询语言（SQL） (SQL) </li>
-<li>数据和关系都存储在单独的表中。 </li>
-<li>数据操纵语言，数据定义语言 </li>
-<li>严格的一致性</li>
-<li>基础事务</li>
-</ul>
-<h3 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h3><ul>
-<li>代表着不仅仅是SQL</li>
-<li>没有声明性查询语言</li>
-<li>没有预定义的模式</li>
-<li>键-值对存储，列存储，文档存储，图形数据库</li>
-<li>最终一致性，而非ACID属性</li>
-<li>非结构化和不可预知的数据</li>
-<li>CAP定理 </li>
-<li>高性能，高可用性和可伸缩性</li>
-</ul>
-<hr>
-<h3 id="NoSQL的优点-缺点"><a href="#NoSQL的优点-缺点" class="headerlink" title="NoSQL的优点/缺点"></a>NoSQL的优点/缺点</h3><h5 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h5><ul>
-<li>高可扩展性</li>
-<li>分布式计算</li>
-<li>低成本</li>
-<li>架构的灵活性，半结构化数据</li>
-<li>没有复杂的关系</li>
-</ul>
-<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点:"></a>缺点:</h5><ul>
-<li>没有标准化</li>
-<li>有限的查询功能（到目前为止）</li>
-<li>最终一致是不直观的程序</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://mrhu.tk/2016/09/23/RDBMSvsNoSQL/" data-id="cj0y1bi7d000b5hpv99cji8fm" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RDBMS-NoSQL/">RDBMS,NoSQL</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-ssh-keygen命令详解" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/23/ssh-keygen命令详解/" class="article-date">
-  <time datetime="2016-09-23T13:34:46.000Z" itemprop="datePublished">2016-09-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/23/ssh-keygen命令详解/">ssh-keygen命令详解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br><span class="line">-b：指定密钥长度；</span><br><span class="line"> -e：读取openssh的私钥或者公钥文件； </span><br><span class="line">-C：添加注释； -f：指定用来保存密钥的文件名；</span><br><span class="line"> -i：读取未加密的ssh-v2兼容的私钥/公钥文件，然后在标准输出设备上显示openssh兼容的私钥/公钥；</span><br><span class="line"> -l：显示公钥文件的指纹数据；</span><br><span class="line"> -N：提供一个新密语；</span><br><span class="line"> -P：提供（旧）密语；</span><br><span class="line"> -q：静默模式； </span><br><span class="line">-t：指定要创建的密钥类型。</span><br></pre></td></tr></table></figure>
-<p><strong>示例：
-</strong><br><code>ssh-keygen -t rsa -b 4096 -C &quot;imhzr@foxmail.com&quot;</code></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://mrhu.tk/2016/09/23/ssh-keygen命令详解/" data-id="cj0y1bi8b001a5hpvwdfw5rj0" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh-keygen/">ssh-keygen</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-linux-mame-install" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/30/linux-mame-install/" class="article-date">
-  <time datetime="2016-07-30T03:52:26.000Z" itemprop="datePublished">2016-07-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/瞎折腾/">瞎折腾</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/30/linux-mame-install/">Linux下安装mame街机模拟器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>既然要把Linux当做主力机，基本的娱乐肯定是比不可少的嘛。虽然有steame但我更喜欢玩一些街机小游戏，满满的童年回忆啊。鼎鼎大名的街机模拟器mame有linux版。今天正好得空赶紧安装起来玩一把拳皇，哈哈。</p>
-</blockquote>
-<h4 id="1-安裝-mame-模擬器"><a href="#1-安裝-mame-模擬器" class="headerlink" title="1.安裝 mame 模擬器"></a>1.安裝 mame 模擬器</h4><p><code>sudo rpm -Uvh rpmfusion-nonfree-release-23.noarch.rpm</code> （<a href="http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-23.noarch.rpm">下載地址</a>）<br><code>sudo dnf install libspotify-devel</code><br><code>sudo dnf install mame-0.171-1.fc23.x86_64.rpm</code>  (<a href="https://pkgs.org/fedora-23/rpmfusion-nonfree-x86_64/mame-0.171-1.fc23.x86_64.rpm.html">下載地址</a>)<br>
+        <p>备份数据时一般都谁选择吧日志标剔除。<br>mysql 查询日志表的命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show tables like &quot;%LOG&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>查询出来的LOG表有时候有几十个，备份SQL脚本需要逐个加入 <code>--ignore-table</code>去忽略LOG表，日志表要是再多点岂不累死。所以最好的办法是写个脚本,只需要配置数据库相关信息，就能自动筛选出日志表，自动<code>--ignore-table</code>相关LOG表，然后生成我们需要的备份脚本。<br>
         
           <p class="article-more-link">
-            <a href="/2016/07/30/linux-mame-install/#more">Read More</a>
+            <a href="/2017/04/02/create-mysqldump-sql/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/07/30/linux-mame-install/" data-id="cj0y1bi8300125hpvjhkq6803" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2017/04/02/create-mysqldump-sql/" data-id="cj10b2uku000fthfy5lcv6vzg" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mame-街机模拟器-拳皇/">mame,街机模拟器,拳皇</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysqldump/">mysqldump</a></li></ul>
 
     </footer>
   </div>
@@ -537,10 +128,10 @@
 
 
   
-    <article id="post-fedora23-install-commonly-used-software" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-linux-simple-skill" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/07/30/fedora23-install-commonly-used-software/" class="article-date">
-  <time datetime="2016-07-30T03:37:20.000Z" itemprop="datePublished">2016-07-30</time>
+    <a href="/2017/04/02/linux-simple-skill/" class="article-date">
+  <time datetime="2017-04-02T05:12:47.000Z" itemprop="datePublished">2017-04-02</time>
 </a>
     
   <div class="article-category">
@@ -555,7 +146,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/30/fedora23-install-commonly-used-software/">Fedora23 常用软件安装</a>
+      <a class="article-title" href="/2017/04/02/linux-simple-skill/">Linux下日志查看删除</a>
     </h1>
   
 
@@ -563,26 +154,294 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-安装网易云音乐"><a href="#1-安装网易云音乐" class="headerlink" title="1.安装网易云音乐"></a>1.安装网易云音乐</h3><p>FZUG.repo，确保里面有开启[fzug-testing]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[fzug-testing]</span><br><span class="line">name=FZUG fc$releasever - Testing</span><br><span class="line">baseurl=https://repo.fdzh.org/FZUG/testing/$releasever/$basearch/</span><br><span class="line">skip_if_unavailable=True</span><br><span class="line">metadata_expire=1d</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure></p>
-<p>然后 <code>sudo dnf install netease-cloud-music</code>  OK!</p>
+        <h3 id="1-Linux下如何查看日志文件大小"><a href="#1-Linux下如何查看日志文件大小" class="headerlink" title="1.Linux下如何查看日志文件大小"></a>1.Linux下如何查看日志文件大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#三种方式任选其一</span><br><span class="line">du -sh /date/a.log</span><br><span class="line">ls -sh /date/a.log</span><br><span class="line">stat --printf &quot;%s\n&quot; /date/a.log</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2017/04/02/linux-simple-skill/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2017/04/02/linux-simple-skill/" data-id="cj10b2ult001ethfydncb1zwa" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log/">log</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-set-proxy-for-terminal" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/02/set-proxy-for-terminal/" class="article-date">
+  <time datetime="2017-04-02T05:10:41.000Z" itemprop="datePublished">2017-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/02/set-proxy-for-terminal/">让终端命令翻墙而去</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>由于国内网络进一步恶劣，执行一些终端命令时老是因为伟大的墙而导致命令执行失败，如果能让终端命令走代理就好了。</p>
+</blockquote>
+<p>我们只需要在当前环境当中加入代理配置即可。<br>在终端中输入如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export ALL_PROXY=socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure></p>
+<p>即可。<br>不过这时一次性的，如果想一直这样，将配置写入系统环境变量即可，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo export ALL_PROXY=socks5://127.0.0.1:1080 &gt;&gt; ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
+<p>这样，终端就能通过 shadowsocks 来FQ了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2017/04/02/set-proxy-for-terminal/" data-id="cj10b2uma001ythfy2d5qwt0z" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proxy/">proxy</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-string" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/02/python-string/" class="article-date">
+  <time datetime="2017-04-02T05:06:36.000Z" itemprop="datePublished">2017-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/02/python-string/">「轉」Python 字符串操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Python 字符串操作（string替换、删除、截取、复制、连接、比较、查找、包含、大小写转换、分割等）<br>原文链接<a href="http://wangwei007.blog.51cto.com/68019/903426">：http://wangwei007.blog.51cto.com/68019/903426</a></p>
+</blockquote>
+        
+          <p class="article-more-link">
+            <a href="/2017/04/02/python-string/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2017/04/02/python-string/" data-id="cj10b2um7001uthfy5oh6soje" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-grub-setting" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/02/grub-setting/" class="article-date">
+  <time datetime="2017-04-02T05:05:06.000Z" itemprop="datePublished">2017-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/02/grub-setting/">修改grub2 默認啓動項目</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>以Fedora爲例</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /boot/grub2/</span><br><span class="line">sudo cp grub.cfg grub.cfg.20170325.bak  #備份</span><br><span class="line">vim grub.cfg</span><br><span class="line">set default=&quot;1&quot; #設置默認啓動項目「多餘的啓動項可以刪，保留一兩個就可以了」</span><br><span class="line">sudo grub2-mkconfig     #編譯新配置</span><br><span class="line">sudo reboot             #重啓生效</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2017/04/02/grub-setting/" data-id="cj10b2ulb000ythfyhjgbp5jd" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grub2/">grub2</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-selenium-mobileEmulation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/02/python-selenium-mobileEmulation/" class="article-date">
+  <time datetime="2017-04-02T04:51:39.000Z" itemprop="datePublished">2017-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件测试/">软件测试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/02/python-selenium-mobileEmulation/">Selenium 设置 mobileEmulation 模拟手机模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>chrome有项功能，就是在开发者工具里能够模拟手机打开网页，便想能否用selenium对此进行自动化测试。答案当然是可以的。</p>
+<h1 id="1-第一种方法"><a href="#1-第一种方法" class="headerlink" title="1. 第一种方法"></a>1. 第一种方法</h1><p>第一种方法是通过device name来确定我们要模拟的手机样式，示例代码如下：<br>
+        
+          <p class="article-more-link">
+            <a href="/2017/04/02/python-selenium-mobileEmulation/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2017/04/02/python-selenium-mobileEmulation/" data-id="cj10b2um3001qthfylbfpuxoi" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mobileEmulation/">mobileEmulation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/selenium/">selenium</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-update-python2-6-to-2-7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/02/update-python2-6-to-2-7/" class="article-date">
+  <time datetime="2017-04-02T04:47:47.000Z" itemprop="datePublished">2017-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/02/update-python2-6-to-2-7/">升级centos默认python2.6.6到2.7.9版本</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>部署Django項目時报错如下：</p>
 <blockquote>
-<p>参考：<a href="https://github.com/FZUG/repo/issues/111">https://github.com/FZUG/repo/issues/111</a><br>
+<p>File “/usr/lib64/python2.6/site-packages/django/utils/lru_cache.py”, line 28     fasttypes = {int, str, frozenset, type(None)},                     ^ SyntaxError: invalid syntax</p>
+</blockquote>
+<p>原因：<code>Django 1.8 requires Python 2.7, 3.2, 3.3, 3.4, or 3.5.</code></p>
+<p>经过查看，系统默认Python 版本果然是2.6</p>
+<h3 id="升级centos默认python2-6-6到2-7-9版本"><a href="#升级centos默认python2-6-6到2-7-9版本" class="headerlink" title="升级centos默认python2.6.6到2.7.9版本"></a>升级centos默认python2.6.6到2.7.9版本</h3><hr>
+<p>1.下载Python2.7.9<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tar.xz</span><br><span class="line">#编译python需要用到一下包，所以提前安装：</span><br><span class="line">yum install zlib-devel</span><br><span class="line">yum install bzip2-devel</span><br><span class="line">yum install openssl-devel</span><br><span class="line">yum install ncurses-devel</span><br><span class="line">yum install sqlite-devel</span><br></pre></td></tr></table></figure></p>
         
           <p class="article-more-link">
-            <a href="/2016/07/30/fedora23-install-commonly-used-software/#more">Read More</a>
+            <a href="/2017/04/02/update-python2-6-to-2-7/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/07/30/fedora23-install-commonly-used-software/" data-id="cj0y1bi7u000t5hpvd2rizej7" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2017/04/02/update-python2-6-to-2-7/" data-id="cj10b2umi0026thfyb913gdok" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网易云音乐-Skype-wechat-for-linux-爱壁纸/">网易云音乐,Skype,wechat for linux,爱壁纸</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python2-6/">python2.6</a></li></ul>
 
     </footer>
   </div>
@@ -592,10 +451,10 @@
 
 
   
-    <article id="post-wineqq-fcitx" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-convert-DEB-to-RPM" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/07/30/wineqq-fcitx/" class="article-date">
-  <time datetime="2016-07-30T03:24:59.000Z" itemprop="datePublished">2016-07-30</time>
+    <a href="/2017/04/02/convert-DEB-to-RPM/" class="article-date">
+  <time datetime="2017-04-02T04:39:25.000Z" itemprop="datePublished">2017-04-02</time>
 </a>
     
   <div class="article-category">
@@ -610,7 +469,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/30/wineqq-fcitx/">wineqq fcitx 輸入法無法輸入中文</a>
+      <a class="article-title" href="/2017/04/02/convert-DEB-to-RPM/">DEB &amp; RPM 互相转换</a>
     </h1>
   
 
@@ -619,22 +478,134 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>工作需要没办法必须安装个QQ，试了很多版本最后决定还是选择winqq,安装过程十分简单，由于我用的是fedora添加完FZUG.repo后，直接<code>sudo dnf install wine-qqintl</code>就好,但是安装完winqq 后fcitx一直没有办法输入中文</p>
+<p>有時候裝一些軟件時，發現該軟件只提供DEB格式的linux包，然而我用的是Redhat系的發行版，<br>如我用的就是Fedora,這時候就需要將DEB包轉成RPM格式的包再進行安裝。</p>
 </blockquote>
-<p>解決辦法：<br>wineqq的运行脚本是/usr/bin/wine-qqintl<br>修改脚本，在最开始加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br><span class="line">export GTK_IM_MODULE=&quot;fcitx&quot;</span><br><span class="line">export QT_IM_MODULE=&quot;fcitx&quot;</span><br></pre></td></tr></table></figure></p>
-<p>保存，重新啓動 OK!! </p>
+<p>注：alien 在rpmfusion的源中，需要先添加rpmfusion源。</p>
+<h1 id="Install-alien"><a href="#Install-alien" class="headerlink" title="Install alien"></a>Install alien</h1><p><code>sudo dnf install alien</code></p>
+<h1 id="DEB-To-RPM"><a href="#DEB-To-RPM" class="headerlink" title="DEB To RPM"></a>DEB To RPM</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@linux ~]# alien --to-rpm --scripts dateutils_0.3.1-1.1_amd64.deb</span><br><span class="line">dateutils-0.3.1-2.1.x86_64.rpm generated</span><br></pre></td></tr></table></figure>
+<h1 id="RPM-To-DEB"><a href="#RPM-To-DEB" class="headerlink" title="RPM To DEB"></a>RPM To DEB</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@linux ~]# alien --to-deb --scripts zsh-4.3.10-5.el5.x86_64.rpm</span><br><span class="line">zsh_4.3.10-6_amd64.deb generated</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://mrhu.tk/2016/07/30/wineqq-fcitx/" data-id="cj0y1bi8k001i5hpvfw4k5d95" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://mrhu.tk/2017/04/02/convert-DEB-to-RPM/" data-id="cj10b2uky000kthfybzvjx263" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/winqq-fcitx-中文输入法/">winqq,fcitx,中文输入法</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/alien/">alien</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/deb/">deb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rpm/">rpm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-linux-sys-command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/02/linux-sys-command/" class="article-date">
+  <time datetime="2017-04-02T04:36:28.000Z" itemprop="datePublished">2017-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/02/linux-sys-command/">linux 系統信息查看常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Linux系统信息查看常用命令，有些用的不是很频繁的命令，要用的时候经常忘记，需要临时查找，所以，现记录备忘，以便随查随用。</p>
+</blockquote>
+<h1 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">uname -a                    #查看内核/操作系统/CPU信息</span><br><span class="line">head -n 1 /etc/issue        #查看操作系统版本</span><br><span class="line">cat /proc/cpuinfo           #查看CPU信息</span><br><span class="line">hostname                    #查看计算机名</span><br><span class="line">lspci -tv                   #列出所有PCI设备</span><br><span class="line">lsusb -tv                   #列出所有USB设备</span><br><span class="line">lsmod                       #列出加载的内核模块</span><br><span class="line">env                         #查看环境变量</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2017/04/02/linux-sys-command/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2017/04/02/linux-sys-command/" data-id="cj10b2ulq001athfyz3q0b7r8" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-adb-command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/02/adb-command/" class="article-date">
+  <time datetime="2017-04-02T04:32:31.000Z" itemprop="datePublished">2017-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件测试/">软件测试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/02/adb-command/">Android 常用 adb 命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h1><ul>
+<li>安装app<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">adb install -r xxx.apk //覆盖安装，保留数据和缓存文件</span><br><span class="line">adb install -s xxx.apk //安装apk到sd卡</span><br><span class="line">adb install -f xxx.apk //安装apk到内部系统内存</span><br><span class="line">adb install -d xxx.apk //安装低版本Apk</span><br><span class="line">adb install -g xxx.apk //准许Apk manifest中的所有权限</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2017/04/02/adb-command/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://mrhu.tk/2017/04/02/adb-command/" data-id="cj10b2uko000bthfyb7x9ubqg" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/">adb</a></li></ul>
 
     </footer>
   </div>
@@ -646,7 +617,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -657,7 +628,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/瞎折腾/">瞎折腾</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/瞎折腾/">瞎折腾</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -666,7 +637,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Appium/" style="font-size: 10px;">Appium</a> <a href="/tags/HTMLTestRunner/" style="font-size: 10px;">HTMLTestRunner</a> <a href="/tags/KindleEar-GAE/" style="font-size: 10px;">KindleEar,GAE</a> <a href="/tags/RDBMS-NoSQL/" style="font-size: 10px;">RDBMS,NoSQL</a> <a href="/tags/linux-python-爬虫/" style="font-size: 10px;">linux,python,爬虫</a> <a href="/tags/linux-微信开发者工具/" style="font-size: 10px;">linux,微信开发者工具</a> <a href="/tags/mame-街机模拟器-拳皇/" style="font-size: 10px;">mame,街机模拟器,拳皇</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 20px;">redis</a> <a href="/tags/redis-python/" style="font-size: 10px;">redis,python</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/ssh-keygen/" style="font-size: 10px;">ssh-keygen</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/winqq-fcitx-中文输入法/" style="font-size: 10px;">winqq,fcitx,中文输入法</a> <a href="/tags/中文输入法-linux-wiznote/" style="font-size: 10px;">中文输入法,linux,wiznote</a> <a href="/tags/网易云音乐-Skype-wechat-for-linux-爱壁纸/" style="font-size: 10px;">网易云音乐,Skype,wechat for linux,爱壁纸</a>
+      <a href="/tags/Appium/" style="font-size: 10px;">Appium</a> <a href="/tags/GAE/" style="font-size: 10px;">GAE</a> <a href="/tags/HTMLTestRunner/" style="font-size: 10px;">HTMLTestRunner</a> <a href="/tags/KindleEar/" style="font-size: 10px;">KindleEar</a> <a href="/tags/NoSQL/" style="font-size: 10px;">NoSQL</a> <a href="/tags/RDBMS/" style="font-size: 10px;">RDBMS</a> <a href="/tags/Skype/" style="font-size: 10px;">Skype</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/alien/" style="font-size: 10px;">alien</a> <a href="/tags/deb/" style="font-size: 10px;">deb</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/grub2/" style="font-size: 10px;">grub2</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mame/" style="font-size: 10px;">mame</a> <a href="/tags/mobileEmulation/" style="font-size: 10px;">mobileEmulation</a> <a href="/tags/mysqldump/" style="font-size: 10px;">mysqldump</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/python/" style="font-size: 17.5px;">python</a> <a href="/tags/python2-6/" style="font-size: 10px;">python2.6</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/selenium/" style="font-size: 12.5px;">selenium</a> <a href="/tags/ssh-keygen/" style="font-size: 10px;">ssh-keygen</a> <a href="/tags/string/" style="font-size: 10px;">string</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/wechat-for-linux/" style="font-size: 10px;">wechat for linux</a> <a href="/tags/winqq-fcitx-中文输入法/" style="font-size: 10px;">winqq,fcitx,中文输入法</a> <a href="/tags/wiznote/" style="font-size: 10px;">wiznote</a> <a href="/tags/中文输入法/" style="font-size: 10px;">中文输入法</a> <a href="/tags/微信开发者工具/" style="font-size: 10px;">微信开发者工具</a> <a href="/tags/拳皇/" style="font-size: 10px;">拳皇</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/爱壁纸/" style="font-size: 10px;">爱壁纸</a> <a href="/tags/网易云音乐/" style="font-size: 10px;">网易云音乐</a> <a href="/tags/街机模拟器/" style="font-size: 10px;">街机模拟器</a>
     </div>
   </div>
 
@@ -675,7 +646,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
@@ -687,23 +658,23 @@
       <ul>
         
           <li>
-            <a href="/2016/12/04/python-redis/">Python操作 redis 示例</a>
+            <a href="/2017/04/02/create-mysqldump-sql/">自动生成mysqldump备份脚本</a>
           </li>
         
           <li>
-            <a href="/2016/12/04/Redis-command/">Redis 常用命令总结</a>
+            <a href="/2017/04/02/linux-simple-skill/">Linux下日志查看删除</a>
           </li>
         
           <li>
-            <a href="/2016/12/04/Redis-intro/">Redis 安装使用</a>
+            <a href="/2017/04/02/set-proxy-for-terminal/">让终端命令翻墙而去</a>
           </li>
         
           <li>
-            <a href="/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/">半步视频爬虫利用you-get批量下载优酷视频</a>
+            <a href="/2017/04/02/python-string/">「轉」Python 字符串操作</a>
           </li>
         
           <li>
-            <a href="/2016/09/23/微信开发者工具linux版/">微信开发者工具linux版</a>
+            <a href="/2017/04/02/grub-setting/">修改grub2 默認啓動項目</a>
           </li>
         
       </ul>
