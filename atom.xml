@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mrhu.tk/"/>
-  <updated>2017-04-16T15:07:06.000Z</updated>
+  <updated>2017-05-11T13:19:59.000Z</updated>
   <id>http://mrhu.tk/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://mrhu.tk/2017/04/02/meizitu/"/>
     <id>http://mrhu.tk/2017/04/02/meizitu/</id>
     <published>2017-04-02T06:44:54.000Z</published>
-    <updated>2017-04-16T15:07:06.000Z</updated>
+    <updated>2017-05-11T13:19:59.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;以&lt;a href=&quot;http://www.mmjpg.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.mmjpg.com&lt;/a&gt;网站为例。&lt;br&gt;主体思路：&lt;br&gt;标签页→标签详情页图集→单一图集→单一图集下的所有图片&lt;/p&gt;
@@ -85,10 +85,6 @@
       <category term="瞎折腾" scheme="http://mrhu.tk/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
     
     
-      <category term="妹子图" scheme="http://mrhu.tk/tags/%E5%A6%B9%E5%AD%90%E5%9B%BE/"/>
-    
-      <category term="爬虫" scheme="http://mrhu.tk/tags/%E7%88%AC%E8%99%AB/"/>
-    
   </entry>
   
   <entry>
@@ -96,7 +92,7 @@
     <link href="http://mrhu.tk/2017/04/02/create-mysqldump-sql/"/>
     <id>http://mrhu.tk/2017/04/02/create-mysqldump-sql/</id>
     <published>2017-04-02T05:17:41.000Z</published>
-    <updated>2017-04-02T08:46:22.000Z</updated>
+    <updated>2017-05-11T13:19:07.000Z</updated>
     
     <content type="html">&lt;p&gt;备份数据时一般都会选择把日志标剔除。&lt;br&gt;mysql 查询日志表的命令如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql&amp;gt; show tables like &amp;quot;%LOG&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;查询出来的LOG表有时候有几十个，备份SQL脚本需要逐个加入 &lt;code&gt;--ignore-table&lt;/code&gt;去忽略LOG表，日志表要是再多点岂不累死。所以最好的办法是写个脚本,只需要配置数据库相关信息，就能自动筛选出日志表，自动&lt;code&gt;--ignore-table&lt;/code&gt;相关LOG表，然后生成我们需要的备份脚本。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;脚本如下：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# -*- coding: UTF-8 -*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; MySQLdb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; datetime&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;select_tables&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(host,user,pwd,db)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        tables =  []&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        db = MySQLdb.connect(host,user,pwd,db)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        cursor = db.cursor()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        sql = &lt;span class=&quot;string&quot;&gt;&#39;show tables like &quot;%LOG&quot;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                cursor.execute(sql)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                results = cursor.fetchall()     &lt;span class=&quot;comment&quot;&gt;#返回的数据类似这样的：((&#39;ACT_EVT_LOG&#39;,),..... (&#39;TB_AT_YYZ_MQ_PUSH_LOG&#39;,)) tuple类型&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; result &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; results:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        tablename = result[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        tables.append(tablename)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;except&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;Error: unable to fecth data&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        db.close()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tables&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;add_ignore_table&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(tables, db,ignore_tables=&lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        prefix = &lt;span class=&quot;string&quot;&gt;&#39;--ignore-table=%s.&#39;&lt;/span&gt; % db&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; table &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; tables:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                ignore_table = prefix + table + &lt;span class=&quot;string&quot;&gt;&#39; &#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                ignore_tables += ignore_table&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; ignore_tables&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; __name__ == &lt;span class=&quot;string&quot;&gt;&#39;__main__&#39;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;#数据库配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        host = &lt;span class=&quot;string&quot;&gt;&#39;mysql host&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        user = &lt;span class=&quot;string&quot;&gt;&#39;db user&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        pwd = &lt;span class=&quot;string&quot;&gt;&#39;your password&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        db = &lt;span class=&quot;string&quot;&gt;&#39;database&#39;&lt;/span&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        tables = select_tables(host,user,pwd,db)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        nowtime = datetime.datetime.now().strftime(&lt;span class=&quot;string&quot;&gt;&#39;%Y%m%d%H%M&#39;&lt;/span&gt;)    &lt;span class=&quot;comment&quot;&gt;#以备份的时间点作为文件名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        datafilename = &lt;span class=&quot;string&quot;&gt;&#39;data_&#39;&lt;/span&gt; + db + nowtime + &lt;span class=&quot;string&quot;&gt;&#39;sql&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        struname = &lt;span class=&quot;string&quot;&gt;&#39;struct_&#39;&lt;/span&gt; + db + nowtime + &lt;span class=&quot;string&quot;&gt;&#39;sql&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;mysqldump -h %s -u%s -p%s %s -d &amp;gt;./%s&quot;&lt;/span&gt; % (host,user,pwd,db,struname)     &lt;span class=&quot;comment&quot;&gt;#备份表结构&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;mysqldump -h %s -u%s -p%s %s -t %s &amp;gt;./%s&quot;&lt;/span&gt; % (host,user,pwd,db,add_ignore_table(tables,db),datafilename)  &lt;span class=&quot;comment&quot;&gt;#备份数据，忽略LOG表&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -117,10 +113,6 @@
       <category term="linux" scheme="http://mrhu.tk/categories/linux/"/>
     
     
-      <category term="linux" scheme="http://mrhu.tk/tags/linux/"/>
-    
-      <category term="mysqldump" scheme="http://mrhu.tk/tags/mysqldump/"/>
-    
   </entry>
   
   <entry>
@@ -128,7 +120,7 @@
     <link href="http://mrhu.tk/2017/04/02/linux-simple-skill/"/>
     <id>http://mrhu.tk/2017/04/02/linux-simple-skill/</id>
     <published>2017-04-02T05:12:47.000Z</published>
-    <updated>2017-04-02T06:31:53.000Z</updated>
+    <updated>2017-05-11T13:19:47.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;1-Linux下如何查看日志文件大小&quot;&gt;&lt;a href=&quot;#1-Linux下如何查看日志文件大小&quot; class=&quot;headerlink&quot; title=&quot;1.Linux下如何查看日志文件大小&quot;&gt;&lt;/a&gt;1.Linux下如何查看日志文件大小&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#三种方式任选其一&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;du -sh /date/a.log&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ls -sh /date/a.log&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;stat --printf &amp;quot;%s\n&amp;quot; /date/a.log&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -159,10 +151,6 @@
       <category term="linux" scheme="http://mrhu.tk/categories/linux/"/>
     
     
-      <category term="linux" scheme="http://mrhu.tk/tags/linux/"/>
-    
-      <category term="log" scheme="http://mrhu.tk/tags/log/"/>
-    
   </entry>
   
   <entry>
@@ -170,7 +158,7 @@
     <link href="http://mrhu.tk/2017/04/02/set-proxy-for-terminal/"/>
     <id>http://mrhu.tk/2017/04/02/set-proxy-for-terminal/</id>
     <published>2017-04-02T05:10:41.000Z</published>
-    <updated>2017-04-02T06:34:03.000Z</updated>
+    <updated>2017-05-11T13:20:54.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;由于国内网络进一步恶劣，执行一些终端命令时老是因为伟大的墙而导致命令执行失败，如果能让终端命令走代理就好了。&lt;/p&gt;
@@ -192,10 +180,6 @@
       <category term="linux" scheme="http://mrhu.tk/categories/linux/"/>
     
     
-      <category term="linux" scheme="http://mrhu.tk/tags/linux/"/>
-    
-      <category term="proxy" scheme="http://mrhu.tk/tags/proxy/"/>
-    
   </entry>
   
   <entry>
@@ -203,7 +187,7 @@
     <link href="http://mrhu.tk/2017/04/02/python-string/"/>
     <id>http://mrhu.tk/2017/04/02/python-string/</id>
     <published>2017-04-02T05:06:36.000Z</published>
-    <updated>2017-04-02T06:38:01.000Z</updated>
+    <updated>2017-05-11T13:20:31.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;Python 字符串操作（string替换、删除、截取、复制、连接、比较、查找、包含、大小写转换、分割等）&lt;br&gt;原文链接&lt;a href=&quot;http://wangwei007.blog.51cto.com/68019/903426&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;：http://wangwei007.blog.51cto.com/68019/903426&lt;/a&gt;&lt;/p&gt;
@@ -223,10 +207,6 @@
       <category term="python" scheme="http://mrhu.tk/categories/python/"/>
     
     
-      <category term="python" scheme="http://mrhu.tk/tags/python/"/>
-    
-      <category term="string" scheme="http://mrhu.tk/tags/string/"/>
-    
   </entry>
   
   <entry>
@@ -234,7 +214,7 @@
     <link href="http://mrhu.tk/2017/04/02/grub-setting/"/>
     <id>http://mrhu.tk/2017/04/02/grub-setting/</id>
     <published>2017-04-02T05:05:06.000Z</published>
-    <updated>2017-04-02T05:06:11.000Z</updated>
+    <updated>2017-05-11T13:19:28.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;以Fedora爲例&lt;/p&gt;
@@ -254,8 +234,6 @@
       <category term="linux" scheme="http://mrhu.tk/categories/linux/"/>
     
     
-      <category term="grub2" scheme="http://mrhu.tk/tags/grub2/"/>
-    
   </entry>
   
   <entry>
@@ -263,7 +241,7 @@
     <link href="http://mrhu.tk/2017/04/02/python-selenium-mobileEmulation/"/>
     <id>http://mrhu.tk/2017/04/02/python-selenium-mobileEmulation/</id>
     <published>2017-04-02T04:51:39.000Z</published>
-    <updated>2017-04-02T08:52:48.000Z</updated>
+    <updated>2017-05-11T13:20:20.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;chrome有项功能，就是在开发者工具里能够模拟手机打开网页，便想能否用selenium对此进行自动化测试。答案当然是可以的。&lt;/p&gt;
@@ -292,12 +270,6 @@
       <category term="软件测试" scheme="http://mrhu.tk/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="python" scheme="http://mrhu.tk/tags/python/"/>
-    
-      <category term="selenium" scheme="http://mrhu.tk/tags/selenium/"/>
-    
-      <category term="mobileEmulation" scheme="http://mrhu.tk/tags/mobileEmulation/"/>
-    
   </entry>
   
   <entry>
@@ -305,7 +277,7 @@
     <link href="http://mrhu.tk/2017/04/02/update-python2-6-to-2-7/"/>
     <id>http://mrhu.tk/2017/04/02/update-python2-6-to-2-7/</id>
     <published>2017-04-02T04:47:47.000Z</published>
-    <updated>2017-04-02T06:34:10.000Z</updated>
+    <updated>2017-05-11T13:21:15.000Z</updated>
     
     <content type="html">&lt;p&gt;部署Django項目時报错如下：&lt;/p&gt;
 &lt;blockquote&gt;
@@ -341,10 +313,6 @@
       <category term="python" scheme="http://mrhu.tk/categories/python/"/>
     
     
-      <category term="python2.6" scheme="http://mrhu.tk/tags/python2-6/"/>
-    
-      <category term="django" scheme="http://mrhu.tk/tags/django/"/>
-    
   </entry>
   
   <entry>
@@ -352,7 +320,7 @@
     <link href="http://mrhu.tk/2017/04/02/convert-DEB-to-RPM/"/>
     <id>http://mrhu.tk/2017/04/02/convert-DEB-to-RPM/</id>
     <published>2017-04-02T04:39:25.000Z</published>
-    <updated>2017-04-02T06:41:15.000Z</updated>
+    <updated>2017-05-11T13:19:01.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;有時候裝一些軟件時，發現該軟件只提供DEB格式的linux包，然而我用的是Redhat系的發行版，&lt;br&gt;如我用的就是Fedora,這時候就需要將DEB包轉成RPM格式的包再進行安裝。&lt;/p&gt;
@@ -375,14 +343,6 @@
       <category term="linux" scheme="http://mrhu.tk/categories/linux/"/>
     
     
-      <category term="linux" scheme="http://mrhu.tk/tags/linux/"/>
-    
-      <category term="alien" scheme="http://mrhu.tk/tags/alien/"/>
-    
-      <category term="deb" scheme="http://mrhu.tk/tags/deb/"/>
-    
-      <category term="rpm" scheme="http://mrhu.tk/tags/rpm/"/>
-    
   </entry>
   
   <entry>
@@ -390,7 +350,7 @@
     <link href="http://mrhu.tk/2017/04/02/linux-sys-command/"/>
     <id>http://mrhu.tk/2017/04/02/linux-sys-command/</id>
     <published>2017-04-02T04:36:28.000Z</published>
-    <updated>2017-04-02T06:33:19.000Z</updated>
+    <updated>2017-05-11T13:19:53.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;Linux系统信息查看常用命令，有些用的不是很频繁的命令，要用的时候经常忘记，需要临时查找，所以，现记录备忘，以便随查随用。&lt;/p&gt;
@@ -418,8 +378,6 @@
       <category term="linux" scheme="http://mrhu.tk/categories/linux/"/>
     
     
-      <category term="linux" scheme="http://mrhu.tk/tags/linux/"/>
-    
   </entry>
   
   <entry>
@@ -427,7 +385,7 @@
     <link href="http://mrhu.tk/2017/04/02/adb-command/"/>
     <id>http://mrhu.tk/2017/04/02/adb-command/</id>
     <published>2017-04-02T04:32:31.000Z</published>
-    <updated>2017-04-02T04:37:35.000Z</updated>
+    <updated>2017-05-11T13:18:55.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;基础操作&quot;&gt;&lt;a href=&quot;#基础操作&quot; class=&quot;headerlink&quot; title=&quot;基础操作&quot;&gt;&lt;/a&gt;基础操作&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;安装app&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;adb install -r xxx.apk //覆盖安装，保留数据和缓存文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;adb install -s xxx.apk //安装apk到sd卡&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;adb install -f xxx.apk //安装apk到内部系统内存&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;adb install -d xxx.apk //安装低版本Apk&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;adb install -g xxx.apk //准许Apk manifest中的所有权限&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -610,8 +568,6 @@
       <category term="软件测试" scheme="http://mrhu.tk/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="adb" scheme="http://mrhu.tk/tags/adb/"/>
-    
   </entry>
   
   <entry>
@@ -619,7 +575,7 @@
     <link href="http://mrhu.tk/2016/12/04/python-redis/"/>
     <id>http://mrhu.tk/2016/12/04/python-redis/</id>
     <published>2016-12-04T10:50:38.000Z</published>
-    <updated>2017-04-02T06:33:32.000Z</updated>
+    <updated>2017-05-11T13:20:15.000Z</updated>
     
     <content type="html">&lt;p&gt;本文主要介绍通过python对redis数据进行操作。&lt;/p&gt;
 &lt;h3 id=&quot;1-安装Python操作的redis库&quot;&gt;&lt;a href=&quot;#1-安装Python操作的redis库&quot; class=&quot;headerlink&quot; title=&quot;1.安装Python操作的redis库&quot;&gt;&lt;/a&gt;1.安装Python操作的redis库&lt;/h3&gt;&lt;p&gt;&lt;code&gt;pip install redis&lt;/code&gt;&lt;br&gt;Redis的Python驱动源码地址是&lt;a href=&quot;https://github.com/andymccurdy/redis-py&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/andymccurdy/redis-py&lt;/a&gt;&lt;br&gt;redis-py使用redis模块的StrictRedis 类对redis进行操作。大部分操作和redis官方提供的命令语法相同，但是有些命令的使用例外。&lt;/p&gt;
@@ -651,10 +607,6 @@
       <category term="redis" scheme="http://mrhu.tk/categories/redis/"/>
     
     
-      <category term="redis" scheme="http://mrhu.tk/tags/redis/"/>
-    
-      <category term="python" scheme="http://mrhu.tk/tags/python/"/>
-    
   </entry>
   
   <entry>
@@ -662,7 +614,7 @@
     <link href="http://mrhu.tk/2016/12/04/Redis-command/"/>
     <id>http://mrhu.tk/2016/12/04/Redis-command/</id>
     <published>2016-12-04T09:24:03.000Z</published>
-    <updated>2016-12-04T09:51:49.000Z</updated>
+    <updated>2017-05-11T13:20:43.000Z</updated>
     
     <content type="html">&lt;p&gt;Redis常用操作命令总结，方便随用随查。&lt;/p&gt;
 &lt;h3 id=&quot;连接操作相关的命令&quot;&gt;&lt;a href=&quot;#连接操作相关的命令&quot; class=&quot;headerlink&quot; title=&quot;连接操作相关的命令&quot;&gt;&lt;/a&gt;连接操作相关的命令&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;redis-cli &lt;span class=&quot;comment&quot;&gt;#连接本地服务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;redis-cli -h host -p port &lt;span class=&quot;_&quot;&gt;-a&lt;/span&gt; yourpassword &lt;span class=&quot;comment&quot;&gt;#远程连接&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;quit  &lt;span class=&quot;comment&quot;&gt;#关闭连接（connection）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;config get requirepass &lt;span class=&quot;comment&quot;&gt;#验证是否设置了密码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;config &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt; requirepass yourpassword &lt;span class=&quot;comment&quot;&gt;#设置密码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;config &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt; requirepass “” &lt;span class=&quot;comment&quot;&gt;#清空密码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;auth yourpassword &lt;span class=&quot;comment&quot;&gt;#简单密码认证&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;select index &lt;span class=&quot;comment&quot;&gt;#切换到指定的数据库，数据库索引号 index 用数字值指定，以 0 作为起始索引值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -687,8 +639,6 @@
       <category term="redis" scheme="http://mrhu.tk/categories/redis/"/>
     
     
-      <category term="redis" scheme="http://mrhu.tk/tags/redis/"/>
-    
   </entry>
   
   <entry>
@@ -696,7 +646,7 @@
     <link href="http://mrhu.tk/2016/12/04/Redis-intro/"/>
     <id>http://mrhu.tk/2016/12/04/Redis-intro/</id>
     <published>2016-12-04T07:48:58.000Z</published>
-    <updated>2016-12-04T07:56:39.000Z</updated>
+    <updated>2017-05-11T13:20:48.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Redis-简介&quot;&gt;&lt;a href=&quot;#Redis-简介&quot; class=&quot;headerlink&quot; title=&quot;Redis 简介&quot;&gt;&lt;/a&gt;Redis 简介&lt;/h3&gt;&lt;p&gt;Redis是完全开源免费的,遵守BSD协议,是一个高性能的key-value数据库。&lt;br&gt;Redis与其他key-value缓存产品有以下三个特点:&lt;/p&gt;
 &lt;ul&gt;
@@ -732,8 +682,6 @@
       <category term="redis" scheme="http://mrhu.tk/categories/redis/"/>
     
     
-      <category term="redis" scheme="http://mrhu.tk/tags/redis/"/>
-    
   </entry>
   
   <entry>
@@ -741,7 +689,7 @@
     <link href="http://mrhu.tk/2016/09/23/%E5%8D%8A%E6%AD%A5%E8%A7%86%E9%A2%91%E7%88%AC%E8%99%AB%E5%88%A9%E7%94%A8you-get%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD%E4%BC%98%E9%85%B7%E8%A7%86%E9%A2%91/"/>
     <id>http://mrhu.tk/2016/09/23/半步视频爬虫利用you-get批量下载优酷视频/</id>
     <published>2016-09-23T14:10:55.000Z</published>
-    <updated>2017-04-02T06:32:56.000Z</updated>
+    <updated>2017-05-11T13:18:29.000Z</updated>
     
     <content type="html">&lt;p&gt;为何叫半步视频爬虫呢，最近在学习爬虫，爬完妹子图后想着爬一下优酷网的电视剧，结果半天没有解析到视频的真正下载地址，本来像借助硕鼠解析正式地址后来发现，硕鼠怂了居然不同优酷的解析了估计是怕被告吧。后来发现you-get这个神器，具体看&lt;a href=&quot;https://you-get.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt;介绍吧，于是只爬取了视频播放页面的url至于解析视频地址和下载就交给you-get吧。&lt;/p&gt;
 &lt;h4 id=&quot;you-get-安装&quot;&gt;&lt;a href=&quot;#you-get-安装&quot; class=&quot;headerlink&quot; title=&quot;you-get 安装&quot;&gt;&lt;/a&gt;you-get 安装&lt;/h4&gt;&lt;p&gt;&lt;code&gt;sudo pip3 install you-get&lt;/code&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -762,12 +710,6 @@
       <category term="瞎折腾" scheme="http://mrhu.tk/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
     
     
-      <category term="python" scheme="http://mrhu.tk/tags/python/"/>
-    
-      <category term="linux" scheme="http://mrhu.tk/tags/linux/"/>
-    
-      <category term="爬虫" scheme="http://mrhu.tk/tags/%E7%88%AC%E8%99%AB/"/>
-    
   </entry>
   
   <entry>
@@ -775,7 +717,7 @@
     <link href="http://mrhu.tk/2016/09/23/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7linux%E7%89%88/"/>
     <id>http://mrhu.tk/2016/09/23/微信开发者工具linux版/</id>
     <published>2016-09-23T13:56:59.000Z</published>
-    <updated>2017-04-02T06:32:48.000Z</updated>
+    <updated>2017-05-11T13:18:31.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;虽然该工具基于NODE的但官网没有打包linux版本的客户端，是滴，就是这么尿性。今天在ruby-china找到网友分享的linux版的客户端，现分享于此。&lt;/p&gt;
@@ -796,10 +738,6 @@
       <category term="linux" scheme="http://mrhu.tk/categories/linux/"/>
     
     
-      <category term="linux" scheme="http://mrhu.tk/tags/linux/"/>
-    
-      <category term="微信开发者工具" scheme="http://mrhu.tk/tags/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
-    
   </entry>
   
   <entry>
@@ -807,7 +745,7 @@
     <link href="http://mrhu.tk/2016/09/23/RDBMSvsNoSQL/"/>
     <id>http://mrhu.tk/2016/09/23/RDBMSvsNoSQL/</id>
     <published>2016-09-23T13:43:12.000Z</published>
-    <updated>2017-04-02T06:33:53.000Z</updated>
+    <updated>2017-05-11T13:20:37.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;最近在看mongodb的教程，看到RDBMS与NoSQL的笔记时，觉得挺详细的记录备忘。&lt;/p&gt;
@@ -858,10 +796,6 @@
       <category term="DB" scheme="http://mrhu.tk/categories/DB/"/>
     
     
-      <category term="RDBMS" scheme="http://mrhu.tk/tags/RDBMS/"/>
-    
-      <category term="NoSQL" scheme="http://mrhu.tk/tags/NoSQL/"/>
-    
   </entry>
   
   <entry>
@@ -869,25 +803,21 @@
     <link href="http://mrhu.tk/2016/09/23/ssh-keygen%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/"/>
     <id>http://mrhu.tk/2016/09/23/ssh-keygen命令详解/</id>
     <published>2016-09-23T13:34:46.000Z</published>
-    <updated>2016-09-23T13:41:27.000Z</updated>
+    <updated>2017-05-11T13:21:09.000Z</updated>
     
-    <content type="html">&lt;hr&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ssh-keygen&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-b：指定密钥长度；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -e：读取openssh的私钥或者公钥文件； &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-C：添加注释； -f：指定用来保存密钥的文件名；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -i：读取未加密的ssh-v2兼容的私钥/公钥文件，然后在标准输出设备上显示openssh兼容的私钥/公钥；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -l：显示公钥文件的指纹数据；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -N：提供一个新密语；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -P：提供（旧）密语；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -q：静默模式； &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-t：指定要创建的密钥类型。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    <content type="html">&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ssh-keygen&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-b：指定密钥长度；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -e：读取openssh的私钥或者公钥文件； &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-C：添加注释； -f：指定用来保存密钥的文件名；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -i：读取未加密的ssh-v2兼容的私钥/公钥文件，然后在标准输出设备上显示openssh兼容的私钥/公钥；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -l：显示公钥文件的指纹数据；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -N：提供一个新密语；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -P：提供（旧）密语；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -q：静默模式； &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-t：指定要创建的密钥类型。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;strong&gt;示例：
 &lt;/strong&gt;&lt;br&gt;&lt;code&gt;ssh-keygen -t rsa -b 4096 -C &amp;quot;imhzr@foxmail.com&amp;quot;&lt;/code&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
     
     </summary>
     
       <category term="linux" scheme="http://mrhu.tk/categories/linux/"/>
     
-    
-      <category term="ssh-keygen" scheme="http://mrhu.tk/tags/ssh-keygen/"/>
     
   </entry>
   
@@ -896,7 +826,7 @@
     <link href="http://mrhu.tk/2016/07/30/linux-mame-install/"/>
     <id>http://mrhu.tk/2016/07/30/linux-mame-install/</id>
     <published>2016-07-30T03:52:26.000Z</published>
-    <updated>2017-04-02T06:32:20.000Z</updated>
+    <updated>2017-05-11T13:19:41.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;既然要把Linux当做主力机，基本的娱乐肯定是比不可少的嘛。虽然有steame但我更喜欢玩一些街机小游戏，满满的童年回忆啊。鼎鼎大名的街机模拟器mame有linux版。今天正好得空赶紧安装起来玩一把拳皇，哈哈。&lt;/p&gt;
@@ -927,12 +857,6 @@
       <category term="瞎折腾" scheme="http://mrhu.tk/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
     
     
-      <category term="mame" scheme="http://mrhu.tk/tags/mame/"/>
-    
-      <category term="街机模拟器" scheme="http://mrhu.tk/tags/%E8%A1%97%E6%9C%BA%E6%A8%A1%E6%8B%9F%E5%99%A8/"/>
-    
-      <category term="拳皇" scheme="http://mrhu.tk/tags/%E6%8B%B3%E7%9A%87/"/>
-    
   </entry>
   
   <entry>
@@ -940,7 +864,7 @@
     <link href="http://mrhu.tk/2016/07/30/fedora23-install-commonly-used-software/"/>
     <id>http://mrhu.tk/2016/07/30/fedora23-install-commonly-used-software/</id>
     <published>2016-07-30T03:37:20.000Z</published>
-    <updated>2017-04-02T06:36:38.000Z</updated>
+    <updated>2017-05-11T13:19:20.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;1-安装网易云音乐&quot;&gt;&lt;a href=&quot;#1-安装网易云音乐&quot; class=&quot;headerlink&quot; title=&quot;1.安装网易云音乐&quot;&gt;&lt;/a&gt;1.安装网易云音乐&lt;/h3&gt;&lt;p&gt;FZUG.repo，确保里面有开启[fzug-testing]&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[fzug-testing]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;name=FZUG fc$releasever - Testing&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;baseurl=https://repo.fdzh.org/FZUG/testing/$releasever/$basearch/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;skip_if_unavailable=True&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;metadata_expire=1d&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpgcheck=0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;enabled=1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;然后 &lt;code&gt;sudo dnf install netease-cloud-music&lt;/code&gt;  OK!&lt;/p&gt;
@@ -970,14 +894,6 @@
     
       <category term="linux" scheme="http://mrhu.tk/categories/linux/"/>
     
-    
-      <category term="网易云音乐" scheme="http://mrhu.tk/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
-    
-      <category term="Skype" scheme="http://mrhu.tk/tags/Skype/"/>
-    
-      <category term="wechat for linux" scheme="http://mrhu.tk/tags/wechat-for-linux/"/>
-    
-      <category term="爱壁纸" scheme="http://mrhu.tk/tags/%E7%88%B1%E5%A3%81%E7%BA%B8/"/>
     
   </entry>
   
